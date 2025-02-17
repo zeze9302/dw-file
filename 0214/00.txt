@@ -1,0 +1,25 @@
+dothome.co.kr
+계정.. 땅
+도메인.. 주소 id.dothome.co.kr
+호스팅.. 땅을 임대해주는 임대사업자
+웹호스팅 .. 온라인 임대사업
+내 계정에 접속하는 방법
+-ftp.. file transform protocol..
+= 파일질라
+http. ftp. smtp 규약 . 룰..
+
+index... 목차..차례..
+대부분의 서버관리자는 해당 도메인 접속했을때.. 제일 처음으로 index라는 이름을 가진 파일을 오픈하게 셋팅한다.
+
+margin: 박스의 바깥쪽 여백
+padding: 박스의 안쪽 여백...
+
+header, main, footer, nav.....
+div.. id="header"
+
+block요소는 width, height, margin,padding등의 값을 자유롭게 줄수 있으나 
+inline요소는 이를 줄 수 없다.
+
+display:inline-block;
+
+125+2=127*4=508
