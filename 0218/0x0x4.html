@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      p {
+        width: 500px;
+        margin: auto;
+        border: 1px solid #ccc;
+        font-family: ghana;
+        line-height: 160%;
+        color: #333;
+        letter-spacing: -1px;
+        font-size: 20px;
+        text-align: justify;
+      }
+
+      h1 {
+        font-size: 6em;
+        color: white;
+        text-align: center;
+        text-shadow: 0 0 40px rgb(75, 31, 57), 1px 1px 5px black,
+          -2px -4px 20px rgb(71, 9, 71);
+        /* x, y, 블러, color */
+        border: 2px solid #ccc;
+        width: 1000px;
+        margin: auto;
+        margin-top: 100px;
+        margin-bottom: 300px;
+        border-radius: 30px;
+        box-shadow: 5px 5px 40px rgb(223, 66, 118);
+        padding: 50px;
+      }
+      @font-face {
+        font-family: "surround";
+        font-weight: 100;
+        src: url("font/surround.eot"); /*ms에서 개발한 ie전용 서체*/
+        src: url("font/surround.eot?#iefix") format("embedded-opentype"),
+          url("font/surround.woff") format("woff"),
+          /*최신표준포맷.지원되지 않는 브라우저가 많다*/
+            url("font/surround.ttf") format("truetype"); /*대부분의 웹브라우저가 지원한다*/
+      }
+
+      h2 {
+        font-size: 6em;
+        color: white;
+        text-align: center;
+        text-shadow: 0 0 40px rgb(64, 58, 151), 1px 1px 5px black,
+          -2px -4px 20px rgb(17, 163, 163);
+        /* x, y, 블러, color */
+        border: 2px solid #ccc;
+        width: 1000px;
+        margin: auto;
+        margin-top: 100px;
+        margin-bottom: 300px;
+        border-radius: 30px;
+        box-shadow: 5px 5px 40px rgb(223, 66, 118);
+        padding: 50px;
+      }
+      @font-face {
+        font-family: "og";
+        font-weight: 100;
+        src: url("font/og.eot"); /*ms에서 개발한 ie전용 서체*/
+        src: url("font/og.eot?#iefix") format("embedded-opentype"),
+          url("font/og.woff") format("woff"),
+          /*최신표준포맷.지원되지 않는 브라우저가 많다*/ url("font/og.ttf")
+            format("truetype"); /*대부분의 웹브라우저가 지원한다*/
+      }
+      h3 {
+        font-size: 6em;
+        color: white;
+        text-align: center;
+        text-shadow: 0 0 40px rgb(231, 34, 149), 1px 1px 5px black,
+          -2px -4px 20px rgb(224, 99, 224);
+        /* x, y, 블러, color */
+        border: 2px solid #ccc;
+        width: 1000px;
+        margin: auto;
+        margin-top: 100px;
+        margin-bottom: 300px;
+        border-radius: 30px;
+        box-shadow: 5px 5px 40px rgb(223, 66, 118);
+        padding: 50px;
+      }
+      @font-face {
+        font-family: "lovingu";
+        font-weight: 100;
+        src: url("font/lovingu.eot"); /*ms에서 개발한 ie전용 서체*/
+        src: url("font/lovingu.eot?#iefix") format("embedded-opentype"),
+          url("font/lovingu.woff") format("woff"),
+          /*최신표준포맷.지원되지 않는 브라우저가 많다*/ url("font/lovingu.ttf")
+            format("truetype"); /*대부분의 웹브라우저가 지원한다*/
+      }
+      h4 {
+        font-size: 6em;
+        color: white;
+        text-align: center;
+        text-shadow: 0 0 40px rgb(231, 34, 149), 1px 1px 5px black,
+          -2px -4px 20px rgb(224, 99, 224);
+        /* x, y, 블러, color */
+        border: 2px solid #ccc;
+        width: 1000px;
+        margin: auto;
+        margin-top: 100px;
+        margin-bottom: 300px;
+        border-radius: 30px;
+        box-shadow: 5px 5px 40px rgb(223, 66, 118);
+        padding: 50px;
+      }
+      @font-face {
+        font-family: "got";
+        font-weight: 100;
+        src: url("font/got.eot"); /*ms에서 개발한 ie전용 서체*/
+        src: url("font/got.eot?#iefix") format("embedded-opentype"),
+          url("font/got.woff") format("woff"),
+          /*최신표준포맷.지원되지 않는 브라우저가 많다*/ url("font/got.ttf")
+            format("truetype");
+      }
+      h5 {
+        font-size: 6em;
+        color: white;
+        text-align: center;
+        text-shadow: 0 0 40px rgb(231, 34, 149), 1px 1px 5px black,
+          -2px -4px 20px rgb(224, 99, 224);
+        /* x, y, 블러, color */
+        border: 2px solid #ccc;
+        width: 1000px;
+        margin: auto;
+        margin-top: 100px;
+        margin-bottom: 300px;
+        border-radius: 30px;
+        box-shadow: 5px 5px 40px rgb(223, 66, 118);
+        padding: 50px;
+      }
+      @font-face {
+        font-family: "decoline";
+        font-weight: 100;
+        src: url("font/decoline.eot"); /*ms에서 개발한 ie전용 서체*/
+        src: url("font/decoline.eot?#iefix") format("embedded-opentype"),
+          url("font/decoline.woff") format("woff"),
+          /*최신표준포맷.지원되지 않는 브라우저가 많다*/
+            url("font/decoline.ttf") format("truetype");
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Just do it!</h1>
+    <h2>Just do it!</h2>
+    <h3>Just do it!</h3>
+    <h4>Just do it!</h4>
+    <h5>Just do it!</h5>
+  </body>
+</html>
