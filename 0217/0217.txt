@@ -1,0 +1,127 @@
+camel case
+낙타등
+
+
+태그의 의미를 활용한 사용이 중요함
+시멘틱 태그
+header : 상단 - 로고, 개인화기능(로그인, 장바구니, 검색 등)
+footer : 하단 - 사업자번호, 통신판매번호, 운영담당자, 주소, 저작권표시 등
+nav : 메뉴바
+section : (문장을 나타내는 p태그들이 여러개 모여있음) 장, 큰 목차
+article : 절, 작은 목차
+aside : 본문과 다소 동떨어진 내용들
+ex) 배너, 공지, 광고
+
+로봇, ai의 시대에 맞춰서 의미론적 시멘틱 태그를 활용하면 좋겠다
+
+모든폰트는 기본사이즈가 16픽셀이다
+h1 32픽셀이다
+기본값을 버리고 보다 강조하고자 할 때 
+반응형 폰트 사이즈를 원할때 ..vw단위를 사용한다
+
+반응형웹 = media quiries (price 130)
+divice 출력장치, sereen, printer
+웹문서의 사이즈를 실시간으로 조정함
+
+반응형웹의 핵심개념 : 하나의 소스로 모든 디바이스(장치)를 만족시켜줌
+
+적응형웹 (100)
+- 스크립트를 이용해서 접속자의 디바이스를 파악함
+- 그리고 나서 해당 문서로 연결 시켜줌
+pc용 문서작업(1024, 1280, 1920..)
+mobile용 문서작업
+tablet용 문서작업
+
+
+- max-width : ~이하
+
+
+미디어쿼리=반응형웹
+@media screen (또는 media all) and (조건문, 창사이즈) {
+원하는 셋팅
+}
+
+>>media screen (띄어쓰기 중요!!) and
+
+max-width : 최대 가로사이즈가 **이하
+min-width : 최소 가로사이즈가 **이상
+>>%는 적용이 되고 px은 적용이 안됨
+px은 부모값을 <div></div>로 감싸줘야함
+
+
+1. pc버전 : 기본소스가 pc버전으로 제작
+2. tablit버전 : 1024px 이하
+3. mobile버전 : 360px 이하
+
+code spell checker
+챗GPT에서 도움받기
+
+인터넷 >> 웹
+http. protocol 규약, 약속, 룰..
+TCP/IP (웹서버)
+FTP (파일서버)
+SMTP (메일서버)
+이 전체를 우리는 인터넷이라 부른다
+이 중 HTTP를 웹이라 부른다.
+
+input type=""
+- text
+- checkbox : 중복선택가능
+- radio : 중복선택불가(한개만선택가능)
+- button
+
+인라인 요소인 input태그는 예외적으로 
+width, hieght 값이 적용 가능하다
+
+영상 video 태그에서 autoplay는 반드시
+muted를 적용해야 가능하다
+(이것은 구글의 정책이다)
+
+
+유튜브 영상의 가로 세로 비율 파악하기
+100:560(가로) = X:315
+외항의 값은 내항의 값과 같다
+315x100=31500/560
+56.25% = 562px
+
+
+
+유튜브 영상 퍼가기 복사
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Sz1YQ4_JZZw?si=dZqzTJ9uZntOVlBm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+<박스의 구성을 파악한다>
+html tag에는 display속성 중
+block요소와 inline요소로 나뉜다.
+
+block : 밑으로 쌓인다
+-block요소의 width:100% 이다.
+-width, height, margin, padding값을 가지고 있다
+inline : 오른쪽으로 쌓인다
+-텍스트는 가장 전형적인 인라인 요소다
+-span, a, img, input..
+-width, height, margin, padding값을 가지고 있지 않다.
+
+width : 400+padding:30*2=60 + border 2px = 462px (box3)
+
+margin: auto =>좌우개념
+(중앙으로 온다) 중앙정렬
+
+
+반복재생 할 경우 muted 뒤에 loop를 넣어준다
+ <video controls autoplay muted loop>
+      <source src="images/mov.mp4" type="video/mp4" />
+      당신의 웹브라우저는 해당 영상을 지원하지 않습니다.
+    </video>
+
+
+
+
+
+
+
+
+
+
+
+

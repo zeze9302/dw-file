@@ -1,0 +1,136 @@
+display
+
+block요소
+- div(header, nav, footer)
+- p, section, article, aside
+- ul, ol, li
+
+inline요소
+- span
+- a, input
+
+inine-block
+(width, heigth를 줄 수 있음)
+- img 
+- video
+- iframe
+- table
+
+html: 문서의 구조를 완성(문서의 뼈대)
+css: 문서의 디자인을 완성
+script: 문서의 기능을 완성
+
+웹프로그래밍언어
+- php(linux운영체계의 서버에서 동작함) 
+서버의 약 80% linux server
+보안이 약함
+
+, jsp(공공기관의 서버에서 운영)
+보안에서 우수함
+
+, asp(ms사의 서버에서 구동)
+
+선택자
+p.center : p태그 중에서 클래스가 center인 것.
+
+p .center : p태그 밑에 클래스 center를 선택한것.
+**공백 : ~ 밑에
+
+박스요소를 가로로 정렬할때 자주 사용 하는 테크닉
+1. display:inline-block
+- 문제점 : 박스 사이에 자간격이 생긴다
+- 해결방법 : font-size:0;
+2. float:left;
+- 문제점 : 부모가 인지하지 못한다
+- 인지하게 하는 테크닉 overflow:hidden;
+
+선택자
+id/class/tag/
+nth-child()
+nth-of-type()
+
+주석 :ctrl+/
+css : /*  */
+html : !--  --
+
+div : 레이아웃 전문 태그 (마진이 없음)
+p태그 : 문단 (마진이 들어있음)
+
+마진은 박스의 사이즈가 아니고 위치를
+결정하는 속성이다
+
+margin:auto; 를 줄 때는 반드시 박스의 
+width가 100%보다 작아야 한다.
+auto는 탑, 바텀이 빠진것이다
+
+text는 기본적으로 왼쪽 정렬이다.
+
+쉐도우 : 박스 , 텍스트
+
+우리나라에서 많이 쓰는 글꼴
+굴림체, 돋음체, 궁서체, 맑은고딕
+- 시스템폰트.. 누구의 컴퓨터에나 있는 글꼴
+- 제한된 글꼴을 넘어서기 위해 웹폰트라는 새로운 서비스 시작됨
+
+
+nomalism
+단순하다.. 심플하다
+고딕체.. sans-serif
+
+minimalism
+최소화,
+super nomal
+
+maximalism
+화려함, 복잡함..
+궁서체..serif
+
+손글씨체
+
+serif -신문
+sans-serif -Helvetica유명
+
+em 폰트 단위
+-상대값.. 기준은 body의 폰트 사이즈
+-평소 body의 폰트 사이즈는 16px이다
+-1em=16px
+-2em=32px (h1 사이즈와 동일) / 0.8em
+
+100:16=80:x
+(16x80=1,280)
+x=12.8px
+
+
+
+.nanum-brush-script-regular {
+  font-family: "Nanum Brush Script", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+<style>
+@font-face{
+ font-family:'tvn';
+ font-weight:100;
+ src:url('font/tvn-light.eot');   /*ms에서 개발한 ie전용 서체*/
+ src:url('font/tvn-light.eot?#iefix')format('embedded-opentype'),
+  url('font/tvn-light.woff')format('woff'),   /*최신표준포맷.지원되지 않는 브라우저가 많다*/
+  url('font/tvn-light.ttf')format('truetype');   /*대부분의 웹브라우저가 지원한다*/
+}
+</style>
+
+@font-face {
+    font-family: 'ghanachoco';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ghanachoco.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+눈누 사이트 ->
+ttf 다운로드 ->
+ttf파일을 sfnt2woff.exe위에 드래그 ->woff파일 생성
+ttf파일 복사 후 한개 더 만든 후
+EOTFAST위에 올려 놓고 한개 더 만듬 ->eot파일 생성
+
+font 폴더 만든 후 
+다운받은 ttf파일, eot, woff 총 3개 만들어져있어야함
