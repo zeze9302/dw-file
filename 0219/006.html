@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box; /* 스크롤 없이 한 창에 만들게 하기 */
+      }
+      div {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: beige;
+        border: 3px solid red;
+        text-align: center; /* 가로개념은 얼마든지 센터를 맞출 수 있다 */
+        display: table; /* 첫번째작업 이어서 셋팅 */
+      }
+      span {
+        border: 1px solid blue;
+        display: table-cell; /* 첫번째작업 중앙정렬 중요! */
+        vertical-align: middle;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <span
+        >태그에는 block, inline이 있다.. 그중에 table은 inline과 block의 특징을
+        다 가지고 있다.태그에는 block, inline이 있다.. 그중에 table은 inline과
+        block의 특징을 다 가지고 있다.태그에는 block, inline이 있다.. 그중에
+        table은 inline과 block의 특징을 다 가지고 있다.태그에는 block, inline이
+        있다.. 그중에 table은 inline과 block의 특징을 다 가지고 있다.</span
+      >
+    </div>
+  </body>
+</html>

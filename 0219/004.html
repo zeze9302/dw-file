@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      div {
+        width: 1000px;
+        height: 400px;
+        margin: auto;
+        border: 1px solid red;
+        position: relative; /* 포지션을 줘야 div 범위 안으로 들어간다 */
+      }
+      h1 {
+        background-color: indianred;
+        position: relative;
+        top: 20px;
+        left: 30px;
+        z-index: -10;
+      }
+      p {
+        background-color: aquamarine;
+        height: 100px;
+        /* width: 1000px; */
+        position: absolute;
+        right: 0;
+        top: 80px;
+        z-index: 11;
+      }
+      section {
+        background-color: beige;
+        height: 100px;
+        z-index: 10;
+        position: relative;
+        opacity: 0.8; /* opacity는 섹션 투명도 조절 */
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>position</h1>
+      <p>
+        position 속성을 적용하면 추가로 부여할 수 있는 다양한 기능이 생성된다.
+      </p>
+      <section>나는 p태그 아래에 있는 content~</section>
+    </div>
+  </body>
+</html>

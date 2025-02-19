@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        /* border: 1px solid blue; */
+      }
+      div {
+        width: 80%;
+        height: 800px;
+        border: 3px solid #333;
+        margin: auto;
+        position: relative;
+      }
+      p {
+        width: 150px;
+        height: 100px;
+        border: 1px solid red;
+        position: absolute;
+        text-align: center; /* 가로에서 센터 */
+        line-height: 100px; /* 버티컬-얼라인은 안먹음, 줄간격 사용 */
+      }
+      p:nth-of-type(1) {
+        left: 0;
+        top: 0;
+      }
+      p:nth-of-type(2) {
+        right: 0;
+        top: 0;
+      }
+      p:nth-of-type(3) {
+        left: 50%; /* -10px은 창 밖으로 나감 */
+        top: 50%;
+        margin-left: -75px;
+        margin-top: -50px;
+      }
+      p:nth-of-type(4) {
+        left: 0;
+        bottom: 0;
+      }
+      p:nth-of-type(5) {
+        right: 0;
+        bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <p>left/top</p>
+      <p>right/top</p>
+      <p>center/meddlecenter/<br />meddlecenter/meddle</p>
+      <p>left/bottom</p>
+      <p>right/bottom</p>
+    </div>
+  </body>
+</html>
