@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      } /* 들여쓰기 제거 */
+      ul {
+        list-style: none;
+      }
+      a {
+        text-decoration: none;
+      } /* 밑줄제거 */
+
+      .mom {
+        width: 1000px;
+        background-color: #333;
+      }
+      .mom > li {
+        display: inline-block;
+      }
+      .mom > li > a {
+        color: white;
+        display: block;
+        padding: 15px;
+      }
+      .mom > li > a:hover {
+        background-color: red;
+      }
+      .mom > li:nth-child(2):hover .son {
+        display: block;
+      } /* 중요! */
+      .mom > li:nth-child(2):hover {
+        background-color: red;
+      }
+
+      .son {
+        position: absolute;
+        background-color: #efefef;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* ul덩어리 자식들 */
+        display: none;
+      }
+      .son li a {
+        display: block;
+        padding: 10px 28px /* 10px 30px */;
+        color: black;
+      }
+      /* .son>li>a:hover {background-color: aquamarine;} */
+    </style>
+  </head>
+  <body>
+    <h1>실전예제 메뉴구조 만들기</h1>
+    <ul class="mom">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">News</a></li>
+      <li>
+        <a href="#">Drop down</a>
+        <ul class="son">
+          <li><a href="#">Link001</a></li>
+          <li><a href="#">Link002</a></li>
+          <li><a href="#">Link003</a></li>
+        </ul>
+      </li>
+      <!-- 드롭다운 옆에 있었던 li는 그 안에 ul이 들어있으면 밑으로 내려옴 -->
+    </ul>
+  </body>
+</html>

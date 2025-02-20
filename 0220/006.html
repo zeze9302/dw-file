@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>메뉴 구조 실전용</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      ul {
+        list-style: none;
+      }
+      a {
+        text-decoration: none;
+        color: #555;
+        display: block;
+        padding: 10px 15px;
+      }
+      .mom {
+        margin-top: 30px;
+        margin-left: 50px;
+        /* border: 1px solid red; */
+        overflow: hidden; /* 자식들이 없는줄알고 직선이 되어있었는데 오버플로어를 줘서 자식들이 있는지 확인함 */
+        margin-bottom: 100px;
+        height: 400px;
+      }
+      .mom > li {
+        float: left; /* 공지사항 도서목록 게시판 가로정렬 */
+        border: 2px solid #ccc;
+        position: relative;
+      }
+      .mom > li:hover {
+        background-color: #efefef;
+        border: 2px solid #333;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3) inset;
+        /* 기본값은 그림자가 바깥쪽에
+        생기지만 inset을 주면 안쪽으로 생긴다 */
+        z-index: 3;
+        /* z인덱스를 주려면 포지션 속성을 가지고 있어야한다 */
+      }
+
+      .mom > li:nth-child(1) {
+        border-radius: 5px 0 0 5px;
+      }
+      .mom > li:nth-child(3) {
+        border-radius: 0 5px 5px 0;
+        margin-left: -2px;
+        margin-bottom: 100px;
+      }
+      .mom > li:nth-child(2) {
+        margin-left: -2px;
+        position: relative; /* 부모포지션속성은 렐러티브를 준다 */
+        /* 2겹으로 보이던 줄이 합쳐져서 붙여짐 */
+        padding-right: 30px;
+      }
+      .mom > li:nth-child(2):after {
+        content: ""; /* after를 줘서 아래삼각형 모양을 만드는것이기에 
+        따옴표 안에 비워놈 after는 가상선택자 */
+        border: 5px solid #333;
+        border-color: #333 transparent transparent transparent;
+        position: absolute;
+        top: 18px;
+        right: 25px;
+      }
+      .mom > li:nth-child(2):hover .blank {
+        display: block;
+      }
+      .blank {
+        position: absolute;
+        /* border: 1px solid red; */
+        width: 197px;
+        display: none;
+      }
+      .son {
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        margin-top: 6px;
+      }
+      .dot {
+        width: 0;
+        border: 100px solid black;
+        clear: both;
+        margin-left: 50px;
+        border-color: black transparent black transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul class="mom">
+        <li><a href="#">공지사항</a></li>
+        <li>
+          <a href="#">도서목록</a>
+          <div class="blank">
+            <!-- 디자인상 띄워져 있는데 이어주는 div 소스 -->
+            <ul class="son">
+              <li><a href="#">Do it! 시리즈</a></li>
+              <li><a href="#">업무 능력 필독서</a></li>
+              <li><a href="#">바빠 학습 시리즈</a></li>
+            </ul>
+          </div>
+        </li>
+        <li><a href="#">게시판</a></li>
+      </ul>
+    </nav>
+    <div class="dot"></div>
+  </body>
+</html>

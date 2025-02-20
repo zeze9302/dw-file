@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      />
+        <style>
+            
+            *{margin: 0; padding: 0; box-sizing: border-box;} /* 들여쓰기 제거 */
+            ul{list-style: none; }
+            a{text-decoration: none;} /* 밑줄제거 */
+            h1{text-align: center;}
+            
+            
+
+
+            .mom{width: 354px; background-color:white;
+            /* border: 1px solid #efefef; */
+            text-align: center;
+           position: relative;
+            /* margin: auto; margin-top: 100px; margin-left: 850px; */
+            left: 800px; top: 100px;}
+            h {
+            font-size: 70px;
+            color: black;}
+       
+           
+            .mom>li{float: left; border: 2px solid #ccc; width: 100px;
+                border-radius: 5px 5px ;}
+            .mom>li>a{color: #333; display: block; padding: 15px;
+                 
+            }
+            .mom>li:nth-child(2){padding-right: 30px; width: 150px; position: relative;}
+            /* .mom>li:nth-child(2) a{width: 80%; border: 1px solid red;} */
+            .h{position: absolute; right: 10px; top: 15px;}
+            .mom>li>a:hover {background-color: #efefef; }
+            .mom>li:nth-child(2):hover .son{display: block; } /* 중요! */
+            .mom>li:nth-child(2):hover {background-color: #efefef;
+            /* border: 2px solid #333; */}
+    
+            .son{position: absolute; background-color: white;
+                border: 1px solid #ccc;
+            box-shadow: 5px 10px 16px rgba(0,0,0,0.5); /* ul덩어리 자식들 */
+            display:none; margin-top: 5px;
+            border-radius: 5px 5px ;}
+            .son li a {display: block; padding: 20px 28px /* 10px 30px */; 
+                color: black; 
+            }
+            /* .son>li>a:hover {background-color: aquamarine;} */
+        </style>
+    </head>
+    <body>
+        
+        <h1>메뉴바 숙제</h1>
+        
+        
+            
+        <ul class="mom">
+            
+            <li><a href="#">공지사항</a></li>
+        
+            <li><a href="#">도서목록</a>
+                <i class="material-icons h">arrow_drop_down</i>
+                <ul class="son">
+                    <li><a href="#">Do it! 시리즈</a></li>
+                    <li><a href="#">업무 능력 필독서</a></li>
+                    <li><a href="#">바빠 학습법 시리즈</a></li>
+                </ul>
+    
+            </li>
+            
+            <li><a href="#">게시판</a></li>        
+           <!-- 드롭다운 옆에 있었던 li는 그 안에 ul이 들어있으면 밑으로 내려옴 -->
+        </ul>
+    </table>
+    </body>
+    </html>
