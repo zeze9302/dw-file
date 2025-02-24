@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>롤오버버튼 연습하기</title>
+    <style>
+      * {
+        background-color: black;
+      }
+      div {
+        width: 100px;
+        height: 30px;
+        transition: all 1s;
+        margin: 400px 3px;
+        float: left;
+        background-color: red;
+        transform-origin: bottom;
+      }
+      div:hover {
+        transform: scaleY(10);
+        transform-origin: bottom;
+        background-image: linear-gradient(to top, red, yellow);
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </body>
+</html>

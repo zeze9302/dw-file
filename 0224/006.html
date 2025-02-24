@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>버튼</title>
+    <style>
+      button {
+        width: 100px;
+        height: 100px;
+        border-radius: 50px; /* 50px, 50% 동일 */
+        /* 이하 아래 내용은 새롭게 선언 */
+        border: 0;
+        background-color: white;
+        font-size: 20px;
+        font-weight: bold;
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+        opacity: 0.5;
+        margin: 20px; /* 상 하 좌우 20px 떨어뜨린것 */
+        transition: all 1s ease; /* 0.5처럼 소수점도 가능 */
+        transition-delay: 0.5s;
+      }
+      button:hover {
+        box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <button>1</button>
+      <!-- 버튼은 웹브라우저마다 다르기 때문에 초기화 해준다 -->
+      <button>2</button>
+    </div>
+  </body>
+</html>

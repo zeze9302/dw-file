@@ -1,0 +1,63 @@
+CSS gradients 
+
+gradient 방향(direction)
+기본값 to bottom 위에서 아래로
+- to light, to left, to top
+각도(angle)
+- 90deg
+
+
+CSS Text Effects
+
+white-space:nowrap; 줄바꿈 없이 계속 진행
+overflow:hidden;
+text-overflow: ellipsis; 
+- 텍스트가 박스 밖으로 넘칠 때 말줄임표로 표현함
+- 주로 최근 게시글 표현할 때 많이 사용
+
+CSS 2D Transforms
+transfom : 변형, 형태의 변화, 물리적 변화
+ex)삼각형->사각형
+- translate : 위치의 변화, 이동
+
+transition : 변화과정, 과도기, 시간적 변화
+- 애니효과, 변화과정의 애니효과 연출
+ex)삼각형이 사각형이 되는 과정
+
+perspective : 내 관찰시점에 대한 값
+- 항상 부모에게 적용한다
+- 실질적인 원근감을 표현하기 위해 주는 값
+
+transfome에서 변형하고자 하는 오브젝트의 기준점 셋팅은 다음과 같다
+- transfome-origin: left top;
+
+transform에서 3차원 3D효과가 가능한 값은
+- translateZ
+- rotate
+이 두가지만 3차원 효과가 가능하다
+
+transition은 반드시 변화 전단계에 적용한다
+- :hover 어떤 이벤트로 인해 변화가 발생
+(hover에는 주면 안됨)
+- hover의 이전 단계에서 적용
+
+timing-function 움직임의 텐션을 조절하는 기법
+ease-in : 볼을 손에서 놓는 순간의 움직임
+- (처음에 느렸다가) 서서히 빨라짐
+ease-out :  떨어진 볼이 바닥에 부딛혀 튕겨오르는 움직임
+- (처음에 엄청 빨랐다가) 서서히 느려짐
+
+button, img, table
+가로로 쌓인다.. 예외적인 인라인요소
+- 블록 요소처럼 width, height, margin을 줄 수 있다
+- inline-block
+
+CSS
+transition / animation
+어떻게 다른가?
+- transition : 어떤 반응에 의해서 움직임이 연출된다
+- animation : 아무런 반응없이도 스스로 혼자서 시작된다
+자동으로 시작되는 경우가 대부분이다
+
+영상의 한장 한장의 컷을 우리는 frame이라고 한다
+그 중에서 핵심이 되는 컷을 keyframe이라고 한다

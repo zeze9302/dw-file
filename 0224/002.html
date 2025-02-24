@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      } /*   *{} 모든것은 */
+      div {
+        width: 200px;
+        height: 200px;
+        margin: 100px;
+        border: 1px solid #000;
+        float: left;
+        perspective: 1300px; /* 원근감 효과 */
+        /* Perspective는 내가 보는 시점의 거리값이다 */
+      }
+      div p {
+        height: 100%;
+        background-color: blue;
+        opacity: 0.3;
+      }
+      div:nth-child(1) p {
+        transform: translateX(-100px);
+        /* 마진으로도 할 수 있지만 트랜스폼으로 움직일 수 있다 */
+      }
+      div:nth-child(2) p {
+        transform: translateY(100px);
+      }
+      div:nth-child(3) p {
+        transform: translate(100px, 0);
+        /* x,y값을 다 줘야 하지만 y값을 주고 싶지 않으면 0을 준다 */
+      }
+      div:nth-child(4) p {
+        transform: translateZ(1000px); /* z는 앞, 뒤 */
+        /* 원근감을 주고 싶으면 부모div에 perspective를 줘야함 */
+        /* perspective 부모값에 300px을 주면 z값에 290px을 주면 창에 꽉 참 */
+        /* 스크롤값을 이용해서 땡길 수 도 있고 밀 수 도 있다 */
+      }
+    </style>
+  </head>
+  <body>
+    <div><p></p></div>
+    <div><p></p></div>
+    <div><p></p></div>
+    <div><p></p></div>
+  </body>
+</html>

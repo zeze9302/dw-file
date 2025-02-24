@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>롤오버버튼 예제</title>
+    <style>
+      body {
+        background-color: black;
+      }
+      .mom {
+        margin-top: 400px;
+        border: 1px solid red;
+      }
+      .son {
+        width: 100px;
+        height: 30px;
+        background-color: red;
+        transform-origin: left bottom; /* X축은 left y축은 bottom */
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+      .son:hover {
+        transform: scaleY(10); /* .son height 30px 이고 y축으로 scaley 10배 */
+        background-image: linear-gradient(to top, red, yellow);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mom">
+      <div class="son"></div>
+      <div class="son"></div>
+      <div class="son"></div>
+      <div class="son"></div>
+      <div class="son"></div>
+      <div class="son"></div>
+      <div class="son"></div>
+      <div class="son"></div>
+      <div class="son"></div>
+      <div class="son"></div>
+      <div class="son"></div>
+    </div>
+  </body>
+</html>

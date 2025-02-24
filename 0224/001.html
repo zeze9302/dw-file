@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box1 {
+        width: 1000px;
+        height: 200px;
+        border: 2px solid red;
+        margin: auto;
+        /* background-image: linear-gradient(red, yellow, pink); */
+        /* 주어지는 색들이 계속 쌓임 */
+        /* background-image: linear-gradient(to right, red, yellow, pink); */
+        /* to top, to bottom, to right */
+        background-image: linear-gradient(180deg, red, yellow, pink);
+        /* 리니어 직선형 */
+        /* deg , rgba도 가능 */
+      }
+      .box2 {
+        width: 80%;
+        height: 600px;
+        border: 2px solid red;
+        margin: auto; /* 마진이 좌우만 들어감 */
+        margin-top: 30px;
+        background-image: radial-gradient(
+          closest-side at 30% 50%,
+          /* circle과 closest-side는 같이 사용 불가 */ red,
+          yellow,
+          green
+        );
+        /* 레디얼 원형 */
+        /* width px, % 값에 따라 박스의 모양이 바뀌면 원형은 바뀐다 */
+        /* f12 눌러서 박스의 창이 바뀌면 원형의 모양이 바뀐다 */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1">그라데이션!!</div>
+    <div class="box2">원형 그라데이션!!</div>
+  </body>
+</html>

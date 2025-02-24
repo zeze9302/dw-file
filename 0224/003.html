@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      div {
+        width: 200px;
+        height: 200px;
+        border: 1px solid red;
+        margin: 100px;
+        perspective: 400px; /* 부모한테 perspective를 줘야함 */
+        float: left;
+      }
+      div p {
+        height: 100%;
+        background-color: blue;
+        opacity: 0.3;
+        /* transform: rotate(30deg); */
+      }
+      div:nth-child(1) p {
+        transform: rotateX(45deg); /* X축은 가로 */ /* 원근감표현 */
+        transform-origin: left top; /* 기준점 셋팅 */
+      } /* x축을 회전축으로 45도 회전, transfome-origin으로 기준선 위쪽으로 변환 */
+      div:nth-child(2) p {
+        transform: rotateY(45deg); /* Y축은 세로 */
+        transform-origin: right top;
+      } /* y축을 회전축으로 45도 회전, transfome-origin으로 기준선 오른쪽 으로 변환 */
+      div:nth-child(3) p {
+        transform: scaleX(1.5);
+      } /* 가로 양 옆을 1.5배 화장 */
+      div:nth-child(4) p {
+        transform: scaleY(0.5); /* 0은 안써도 입력됨 */
+      } /* 세로 위아래를 0.5배 축소 */
+      div:nth-child(5) p {
+        transform: scale(2, 3); /* X,Y값을 다 가지고 있음 */
+      } /* 양 옆 2배, 위 아래 3배 확장 */
+      div:nth-child(6) p {
+        transform: skewX(30deg); /* 가로로 30만큼 기울기 */
+      } /* x축 기준 30도 기울기 */
+      div:nth-child(7) p {
+        transform: skewY(30deg); /* 세로로 30만큼 기울기 */
+      } /* y축 기준 30도 기울기 */
+      div:nth-child(8) p {
+        transform: skew(45deg, 30deg);
+      } /* x축 40도, y축 30도 기울기 */
+    </style>
+  </head>
+  <body>
+    <div><p>1</p></div>
+    <div><p>2</p></div>
+    <div><p>3</p></div>
+    <div><p>4</p></div>
+    <div><p>5</p></div>
+    <div><p>6</p></div>
+    <div><p>7</p></div>
+    <div><p>8</p></div>
+  </body>
+</html>

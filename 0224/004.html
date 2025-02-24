@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 200px;
+        height: 100px;
+        background-color: blue;
+        opacity: 0.3;
+        transition: all 2s; /* 변화 전 단계에 적용 */
+        /* width, height에 s(초)를 따로 주지 않고 all로 사용 가능 */
+      }
+      div:hover {
+        width: 300px;
+        opacity: 0.8;
+      }
+      section {
+        width: 300px;
+        height: 300px;
+        border: 2px solid red;
+        margin: 100px;
+        perspective: 300px; /* 원근감은 부모인 section에 줘야함 */
+      }
+      article {
+        background-color: yellow;
+        line-height: 300px;
+        font-size: 60px;
+        overflow: hidden; /* 폰트사이즈를 정의한 곳에 overflow, text 적용 */
+        text-overflow: ellipsis;
+        /* white-space: nowrap; */
+        transition: all 1s ease-in-out; /* transition: linear, ease... */
+        transform-origin: left center; /* 변화되기 전부터 기준점을 잡아주는 역할 */
+        /* transform-origin이 article에 없다면 붕뜸 */
+      }
+      article:hover {
+        transform: rotateY(45deg);
+        transform-origin: left center; /* 항상 x값 left가 먼저 */
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <section>
+      <!-- 장 -->
+      <article>SonHunMin</article>
+
+      <!--절 -->
+    </section>
+  </body>
+</html>
