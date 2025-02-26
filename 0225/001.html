@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>반응형 웹</title>
+    <style>
+      /* PC버전에 대한 스타일 코딩 , 일반적으로 pc버전에 맞춤 */
+      body {
+        background-color: #ccc;
+      }
+      h1 {
+        background-color: blue;
+        opacity: 0.5;
+        border: 3px solid red; /* 여기까지만 작성하면 꽉참 ,,,이하 내용 작성해야함 */
+        margin: auto;
+        width: 60%; /* 100%꽉차있으면 중앙정렬안돼 */
+        height: 150px;
+      }
+
+      /* tablet버전 */
+      @media all and (max-width: 768px) {
+        body {
+          background-color: lightblue;
+        }
+        h1 {
+          width: 80%;
+        }
+      } /* 스크린 아니고 all 줄 수 있음 */ /* 768 이하 일때 */
+
+      /* mobile버전 */
+      @media all and (max-width: 360px) {
+        body {
+          background-color: aquamarine;
+        }
+        h1 {
+          width: 100%;
+          overflow: auto;
+          text-overflow: ellipsis;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>미디어의 화면 사이즈에 따라서 반응하는 웹문서</h1>
+  </body>
+</html>

@@ -1,0 +1,94 @@
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(120deg, #a1c4fd, #c2e9fb);
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      h1 {
+        font-size: 25px;
+        opacity: 0;
+        transform: translateX(-100px);
+        animation: slideIn 1.5s ease-out forwards;
+        animation-iteration-count: infinite;
+      }
+
+      @keyframes slideIn {
+        0% {
+          opacity: 0;
+          transform: translateX(-100px);
+        }
+        50% {
+          opacity: 1;
+          transform: translateX(0);
+        }
+
+        100% {
+          opacity: 0;
+          transform: translateX(100px);
+        }
+      }
+
+      .logo {
+        width: 100px;
+        height: 100px;
+        background-color: white;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 15px;
+        font-weight: bold;
+        color: #4a90e2;
+        animation: grow 2s ease-in-out infinite alternate;
+      }
+
+      @keyframes grow {
+        0% {
+          transform: rotate(-20deg);
+        }
+        100% {
+          transform: rotate(20deg);
+        }
+      }
+
+      .btn {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 12px;
+        background: #4a90e2;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        animation: blink 1s infinite alternate;
+      }
+
+      @keyframes blink {
+        0% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0.6;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="logo">LOGO</div>
+    <h1>움직이는 웹페이지</h1>
+    <button class="btn">시작하기</button>
+  </body>
+</html>

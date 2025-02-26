@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Flexbox</title>
+    <style>
+      /* body 100%줘도 안늘어남,  html을 같이 넣어줘서 꽉차게 창까지 넓어지게 함 */
+      html,
+      body {
+        border: 1px solid #ccc;
+        height: 100%;
+      }
+      /* ul */
+      .box1 {
+        /* 엄마 ul */
+        padding: 0;
+        list-style: none;
+        border: 2px solid red;
+        display: flex;
+        /* justify-content: center; */ /* 가로정렬에 모든값은 이것이 담당 */
+        /* justify-content: flex-end; 오른쪽 */
+        /* justify-content: space-around; 좌우로 균등하게 할당*/
+        justify-content: space-between; /* 좌 우 박스 가장자리에 붙이고 나머지를 할당해서 배분 */
+      }
+      /* li */
+      .box1 li {
+        /* 자식 li */
+        width: 100px;
+        height: 30px;
+        border: 1px solid blue;
+        margin: 10px;
+      }
+      .box2 {
+        border: 1px solid red;
+        height: 50%;
+        padding: 0;
+        list-style: none;
+        display: flex; /* 1.가로정렬 */
+        /* flex-direction: column; /* 2.세로정렬 */
+        /* align-items: center; */ /* 수직개념에서 중앙 */
+        /* align-content: space-between; */
+
+        /* ++주석 처리 된 내용 제거 하고 아래 3줄만 주면 기능이 작동++ */
+        justify-content: center;
+        /* align-items: center; */
+        /* 세로에서 중앙 (위,아래 동일한 여백값을 가진다) */
+        /* 개별 박스 중심 */
+        align-content: center; /* 군집 덩어리를 중앙으로 */
+        /* 중앙에서 센터 (위,아래 마진값으로 균등하게 분할) */
+        /* 전체 박스 중심 */
+        flex-wrap: wrap;
+      }
+      .box2 li {
+        width: 100px;
+        height: 50px;
+        border: 2px solid blue;
+        margin: 10px;
+        display: flex; /*  여기부터 이하 내용 dis, ju, al 3줄이 중요 */
+        justify-content: center;
+        align-items: center;
+        /* items : 바둑판 개별, 좌, 우, 위, 아래 군집들을 중앙으로 오게하기 */
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="box1">
+      <!-- 클래스를 주면 위에 이름도 전부 변경해야함 -->
+      <li>box1</li>
+      <li>box2</li>
+      <li>box3</li>
+      <li>box4</li>
+    </ul>
+    <ul class="box2">
+      <!-- 클래스를 주면 위에 이름도 전부 변경해야함 -->
+      <li>box1</li>
+      <li>box2</li>
+      <li>box3</li>
+      <li>box4</li>
+      <li>box1</li>
+      <li>box2</li>
+      <li>box3</li>
+      <li>box4</li>
+      <li>box1</li>
+      <li>box2</li>
+      <li>box3</li>
+      <li>box4</li>
+    </ul>
+  </body>
+</html>

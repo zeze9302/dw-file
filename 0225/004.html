@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      /* jquery는 엔진이 꼭 필요하다 */
+      /* $= jquery를 대신해서 쓰는 암호 */
+      // $ (달러슈트)
+      // 기능(){}
+      // 문장의 끝은 세미콜론
+      $(document).ready(function () {
+        //$("div").click(function () {
+        // $(this).hide(3000); /* 3000(밀리세컨드)=3s */
+        //});
+        // 주석처리 앞에 슬래쉬 2개만 쳐도 가능 <<< // >>>
+
+        /*  $("li:fist-child(1)").on("click", function () {
+          $(".box1").show("500");
+        }); */
+
+        $("li")
+          .eq(0) //첫번째 시작자는 0이다
+          .on("click", function () {
+            $(".box1").show("500"); //2000 또는 slow (숫자 또는 문자열 가능)
+          });
+
+        $("li")
+          .eq(1)
+          .on("click", function () {
+            $(".box1").hide("fast"); //2000 또는 fast (숫자 또는 문자열 가능)
+          });
+
+        $("li")
+          .eq(2)
+          .click(function () {
+            $(".box2").fadeIn();
+          });
+
+        $("li")
+          .eq(3)
+          .click(function () {
+            $(".box2").fadeOut();
+          });
+        $("li")
+          .eq(4)
+          .click(function () {
+            $(".box3").toggle(function () {
+              $(".box2").fadeOut();
+            });
+          });
+      });
+    </script>
+    <style>
+      div {
+        width: 500px;
+        height: 200px;
+        background-color: beige;
+        border: 2px solid red;
+        /* display: inline-block; */
+        float: left;
+      }
+      ul {
+        clear: both;
+      }
+      li {
+        width: 100px;
+        height: 30px;
+        border: 1px solid red;
+        float: left;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+    <div class="box3">box3</div>
+
+    <ul>
+      <li><a href="#">show</a></li>
+      <li><a href="#">hide</a></li>
+      <li><a href="#">fadeIn</a></li>
+      <li><a href="#">fadeOut</a></li>
+      <li><a href="#">toggle</a></li>
+    </ul>
+  </body>
+</html>

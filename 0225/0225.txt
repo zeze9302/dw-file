@@ -1,0 +1,156 @@
+transfome 형태의 변화 물리적
+- translate : 이동, 위치의 변화
+transition 변화의 시간 과정 움직임의 애니화
+- 반응 상호작용에 의해서 움직임이 진행된다
+
+반응형웹을 제작(width값)
+pc:1920(20%이상)
+tablet:768
+mobile:360
+
+block요소는 아래로 쌓인다
+가로로 콘텐츠 배치할때..??
+1.display:inline-block
+- 컨텐츠 사이에 자간격이 발생해서 이를 해결해줘야함
+=>font-size:0; 실제 컨텐츠가 담긴 박스에
+font-size:16px;
+
+2. float:left
+-아래 컨텐츠가 밑으로 깔려들어가는 문제 발생
+=>clear:both;
+
+3.display:table; 부모 요소
+  display:table-cell; 자식 요소(실제 가로 정렬할 컨텐츠)
+
+4. position:absolute;
+- 배치의 기준인 부모 요소가 position속성을 가져야 편리하게 세팅할 수 있다.
+
+
+5. flex
+-display:flex;
+(플렉스는 인라인 속성으로 변함,
+플렉스를 남발하지 않을것)
+
+어떤 요소에 flex를 주는 순간
+그 요소는 
+flex constainer가 되고,
+
+그 자식들은
+flex item이 된다
+
+flex-direction: column 세로값
+
+{기본값이 row 가로값 가로 정렬이다}
+
+CSS ***Flex Container
+{부모}
+
+justify-content: 가로정렬에서 진행되는 셋팅
+-left(flex-start), center, right(flex-end),
+-space-around: 균등분할
+-space-between: 좌우를 가장자리에 붙인 후 균등분할
+
+
+***align-items: 수직정렬에서의 셋팅
+{자식}
+{low 일때 성립}
+- top(flex-start), center, bottom(flex-end)
+- space-around {균등하게 좌우분할}
+!-- space-between {양 끝 붙인 후 균등분할}--!
+
+***align-content: 수직정렬 세팅 
+
+***=>차이점은 개별 아이템의 여백값이 아닌 전체 덩어리의 여백값으로 할당해 수직 정렬을 진행한다.
+
+{flex는 반응형에 탁월하다}
+
+CSS Templates
+templates: 잘 만들어진 셋트
+- 누군가가 초보자가 사용하기 편하게 미리 만들어 놓은 틀, 셋트, 디자인, 소스 코딩 등을 말한다.
+
+-------------------------------------------
+
+**구글->jquery->google CDN
+
+제이쿼리엔진파일
+{title바로 밑에 붙여넣기}
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+$(document).ready(function(){
+// 여기에 원하는 명령을 작성해준다.
+});
+문서를 다읽고 준비가 되었다면 이명령을 수행하라
+-웹브라우저, 예약을 하는 행위, 예약문..
+
+***약식으로 줄여서
+$(function)(){
+});
+
+
+$(this): 자신, 나자신..
+
+$('문자열').. 외부의 문자열은 반드시 홀따옴표, 쌍따옴표로 묶어준다.
+
+숫자, 스크립트의 예약어, 등은 문자열 취급을 하지 않는다.
+(ex: 1234, this, window, if...)
+
+
+jQuery Event Methods
+메서드(어떤 명령, 움직임, action)
+{메서드는 뒤에 소괄호가 묶여있다}
+{뒤에 오는 문자는 대문자로 !!}
+.hide(), 
+.show(),
+.slideUp(),
+.slideDown()
+-소괄호 안에는 그 움직임의 셋팅값이 들어간다..
+.hide(3000) {사라지는데 3초를 준다는 뜻}
+ 
+.on ->접촉하는 상황
+
+스크립트에서 가상 선택자 
+:nth-child(), :nth-of-type; 정상 작동이 안된다.
+그래서 
+.eq() 메서드를 사용한다.
+
+모든 index의 첫 값은 0이다.
+모든 순서의 첫값은 0이다.
+
+
+jQuery Effects - Hide and Show
+toggle()
+어떤 동작을 반복하는것..
+up/down
+show/hide
+
+callback: 커피숍에 진동벨..
+-이거 가지고 있다가 진동이 울리면 오세요..
+-동작 순서
+
+ 함수 상수 왓~!!!!!!!!!!!!!!!!!!!
+
+if(조건){
+조건이 참이면 실행한 명령         
+}else{
+조건이 거짓이면 실행할 명령                
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

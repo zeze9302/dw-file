@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jquery 너무 어렵다</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+      div {
+        width: 300px;
+        height: 200px;
+      }
+      #box1 {
+        background-color: blue;
+      }
+      #box2 {
+        background-color: pink;
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const btn1 = document.querySelector(".btn1");
+        const box1 = document.querySelector("#box1");
+
+        btn1.addEventListener("click", function () {
+          if (box1.style.display === "none" || box1.style.display === "") {
+            // box1이 숨겨져 있을 때 slideDown 효과
+            box1.style.display = "block";
+            box1.style.transition = "max-height 0.5s ease-out";
+            box1.style.maxHeight = "500px"; // 최대 높이를 설정하여 '슬라이드 다운' 효과 만들기
+          } else {
+            // box1이 보일 때 slideUp 효과
+            box1.style.transition = "max-height 0.5s ease-in";
+            box1.style.maxHeight = "0"; // 높이를 0으로 설정하여 '슬라이드 업' 효과 만들기
+          }
+
+          // 버튼 텍스트 변경
+          if (box1.style.maxHeight === "0px") {
+            btn1.innerHTML = '<a href="#">slideDown</a>';
+          } else {
+            btn1.innerHTML = '<a href="#">slideUp</a>';
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="box1">box1</div>
+    <div id="box2">box2</div>
+    <p class="btn1"><a href="#">slideUp</a></p>
+    <p class="btn2"><a href="#">slideDown</a></p>
+  </body>
+</html>

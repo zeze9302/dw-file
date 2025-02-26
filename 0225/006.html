@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jquery 너무 어렵다</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        document
+          .querySelectorAll("li")[0]
+          .addEventListener("click", function () {
+            const box1 = document.querySelector(".box1");
+            box1.style.display = "block";
+            box1.style.transition = "display 500ms";
+          });
+
+        document
+          .querySelectorAll("li")[1]
+          .addEventListener("click", function () {
+            const box1 = document.querySelector(".box1");
+            box1.style.display = "none";
+          });
+
+        document
+          .querySelectorAll("li")[2]
+          .addEventListener("click", function () {
+            const box2 = document.querySelector(".box2");
+            box2.style.display = "block";
+            box2.style.opacity = 0;
+            box2.style.transition = "opacity 500ms";
+            setTimeout(() => {
+              box2.style.opacity = 1;
+            }, 10);
+          });
+
+        document
+          .querySelectorAll("li")[3]
+          .addEventListener("click", function () {
+            const box2 = document.querySelector(".box2");
+            box2.style.opacity = 0;
+            box2.style.transition = "opacity 500ms";
+            setTimeout(() => {
+              box2.style.display = "none";
+            }, 500);
+          });
+
+        document
+          .querySelectorAll("li")[4]
+          .addEventListener("click", function () {
+            const box3 = document.querySelector(".box3");
+            if (box3.style.display === "none" || box3.style.display === "") {
+              box3.style.display = "block";
+            } else {
+              box3.style.display = "none";
+            }
+
+            const box2 = document.querySelector(".box2");
+            box2.style.opacity = 0;
+            box2.style.transition = "opacity 500ms";
+            setTimeout(() => {
+              box2.style.display = "none";
+            }, 500);
+          });
+      });
+    </script>
+
+    <style>
+      div {
+        width: 500px;
+        height: 200px;
+        background-color: beige;
+        border: 2px solid red;
+        float: left;
+      }
+
+      ul {
+        clear: both;
+      }
+
+      li {
+        width: 100px;
+        height: 30px;
+        border: 1px solid red;
+        float: left;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+    <div class="box3">box3</div>
+
+    <ul>
+      <li><a href="#">show</a></li>
+      <li><a href="#">hide</a></li>
+      <li><a href="#">fadeIn</a></li>
+      <li><a href="#">fadeOut</a></li>
+      <li><a href="#">toggle</a></li>
+    </ul>
+  </body>
+</html>

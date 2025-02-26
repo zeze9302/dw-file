@@ -1,0 +1,124 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="16x16" href="images/planet.png" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>0224 review</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+      .box1 {
+        width: 400px;
+        height: 100px;
+        /* border: 1px solid royalblue; */
+        margin: auto;
+        margin-top: 100px;
+        overflow: hidden;
+        padding-left: 76px;
+      }
+      .box1 p {
+        float: left;
+        font-size: 72px;
+        font-weight: bold;
+        text-align: center;
+        margin: auto;
+        animation-name: google;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+      }
+      .t1 {
+        color: rgb(55, 105, 255);
+        animation-delay: 0s;
+      }
+      .t2 {
+        color: rgb(240, 52, 52);
+        animation-delay: 0.3s;
+      }
+      .t3 {
+        color: rgb(255, 204, 37);
+        animation-delay: 0.6s;
+      }
+      .t4 {
+        color: rgb(55, 105, 255);
+        animation-delay: 0.9s;
+      }
+      .t5 {
+        color: rgb(45, 133, 45);
+        animation-delay: 1.2s;
+      }
+      .t6 {
+        color: rgb(240, 52, 52);
+        animation-delay: 1.5s;
+      }
+      .box2 {
+        margin: auto;
+        margin-top: 30px;
+        width: 500px;
+        height: 50px;
+        /* border: 1px solid royalblue; */
+        border-radius: 25px;
+        box-shadow: 1px 1px 20px rgb(248, 248, 248);
+        position: relative;
+      }
+      .box2:hover {
+        box-shadow: 1px 1px 20px rgb(230, 230, 230);
+      }
+      #text {
+        display: block;
+        margin: auto;
+        width: 350px;
+        font-size: 18px;
+        border: none;
+        position: absolute;
+        top: 17px;
+        left: 75px;
+      }
+      input::placeholder {
+        color: rgb(209, 209, 209);
+      }
+
+      @keyframes google {
+        0% {
+          top: -40px;
+          opacity: 0;
+        }
+        50% {
+          top: 110px;
+          opacity: 1;
+        }
+        90% {
+          top: 110px;
+          opacity: 1;
+        }
+        100% {
+          top: 260px;
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1">
+      <p class="t1">G</p>
+      <p class="t2">o</p>
+      <p class="t3">o</p>
+      <p class="t4">g</p>
+      <p class="t5">l</p>
+      <p class="t6">e</p>
+    </div>
+    <div class="box2">
+      <input
+        id="text"
+        type="text"
+        title="text"
+        name="text"
+        placeholder="검색어를 입력해 주세요."
+      />
+    </div>
+  </body>
+</html>
