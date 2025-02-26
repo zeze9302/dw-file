@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Document</title>
+    <style>
+      div {
+        width: 400px;
+        height: 200px;
+        border: 2px solid red;
+      }
+      div:nth-child(1) {
+        background-color: blue;
+        position: relative;
+        left: 30px;
+        top: 30px;
+      }
+      div:nth-child(2) {
+        background-color: pink;
+        position: relative;
+        left: 30px;
+        top: 30px;
+      }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.14.1/jquery-ui.min.js"></script>
+    <script>
+      $(function () {
+        $("div:nth-child(1)").animate(
+          {
+            left: 400,
+            top: 200,
+            backgroundColor: "yellow",
+          },
+          1000,
+          "swing",
+          function () {
+            $(this).animate(
+              {
+                left: 30,
+                top: 30,
+                backgroundColor: "blue",
+              },
+              1500,
+              "swing" /* 스윙말고 ease다른것들을 넣어도 가능하다 */
+            );
+          }
+        );
+        $("div:nth-child(2)").animate(
+          {
+            left: 400,
+            top: 200,
+            backgroundColor: "red",
+          },
+          1000,
+          "swing",
+          function () {
+            $(this).animate(
+              {
+                left: 30,
+                top: 30,
+                backgroundColor: "#ccc",
+              },
+              1500,
+              "swing"
+            );
+          }
+        );
+      });
+    </script>
+  </head>
+  <body>
+    <div>box1</div>
+    <div>box2</div>
+  </body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #box {
+        /* 부모인 박스 */
+        width: 500px;
+        height: 500px;
+        border: 1px solid red;
+        margin: 200px auto; /* 위,아래 / 좌,우 오토*/
+        text-align: center;
+      }
+      #tank {
+        width: 300px;
+        height: 300px;
+        background-color: indianred;
+        margin: auto;
+        position: relative; /* 포지션을 주지 않으면 움직이지 않음 */
+        z-index: -10; /* 탱크가 버튼을 가려서 z인덱스로 밑으로 내려줌 */
+      }
+      p {
+        /* 자식인 p */
+        width: 100px;
+        height: 40px;
+        border: 1px solid red;
+        text-align: center;
+        line-height: 40px;
+        display: inline-block;
+        cursor: pointer;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $(function () {
+        //변수선언.. 변수 : 변하는 수..누군가 기준값을 가지고 있어야 한다.
+        //변수 / 상수(변하지 않는다 , 언제나 그자리, 언제나 그 값)
+        var h = 0; /* 호리젠탈 */
+        var v = 0; /* 베리에이션 (버티컬) */
+        var interval; /* 반복 */
+        var degree = 0; /* 각도 */
+        /* $(".left").on("click", function () {
+          $("#tank").animate({ left: (h -= 10) }, 10, "swing"); 왼쪽값
+        });
+        $(".right").on("click", function () {
+          $("#tank").animate({ left: (h += 10) }, 10, "swing"); 오른쪽값
+        });
+        $(".up").on("click", function () {
+          $("#tank").animate({ top: (v -= 10) }, 10, "swing");
+        });
+        $(".down").on("click", function () {
+          $("#tank").animate({ top: (v += 10) }, 10, "swing");
+        }); */
+
+        //함수선언..명령을 기록해서 원할때 불러서 바로 사용..
+        //전역함수...지역함수(지방에서만 쓰는 함수)
+        function left() {
+          $("#tank").animate({ left: (h -= 10) }, 10, "swing");
+        }
+
+        function right() {
+          $("#tank").animate({ left: (h += 10) }, 10, "swing");
+        }
+
+        function up() {
+          $("#tank").animate({ top: (v -= 10) }, 10, "swing");
+        }
+
+        function down() {
+          $("#tank").animate({ top: (v += 10) }, 10, "swing");
+        }
+
+        function turnL() {
+          degree--; /* 현재값(deg)에서 1씩 빼라 마이너스2번줌[--] */
+          $("#tank").css({
+            transform: "rotate(" + degree + "deg)",
+          }); /* rotate와 deg 를 이어주는 변수 ' +degree+ ' */
+        }
+        function turnR() {
+          degree++;
+          $("#tank").css({ transform: "rotate(" + degree + "deg)" });
+        }
+
+        $(".left")
+          .mousedown(function () /* 마우스다운 : 누르는 순간 눌렀을때 */ {
+            interval = setInterval(function () {
+              left();
+            }, 50); /* <--꼭 세미콜론 찍어야함 50=0.05s*/
+          })
+          .mouseup(function () {
+            //마우스업 : 땟을때
+            clearInterval(interval);
+          })
+          .mouseleave(function () {
+            //마우스리브 : 마우스가 떠났을때 멈추게함 ,,,마우스 리브가 없으면 영역을 마우스가 벗어나면 계속 이동됨
+            clearInterval(interval);
+          });
+
+        $(".right")
+          .mousedown(function () {
+            interval = setInterval(function () {
+              right();
+            }, 50);
+          })
+          .mouseup(function () {
+            clearInterval(interval);
+          })
+          .mouseleave(function () {
+            clearInterval(interval);
+          });
+
+        $(".up")
+          .mousedown(function () {
+            interval = setInterval(function () {
+              up();
+            }, 50);
+          })
+          .mouseup(function () {
+            clearInterval(interval);
+          })
+          .mouseleave(function () {
+            clearInterval(interval);
+          });
+
+        $(".down")
+          .mousedown(function () {
+            interval = setInterval(function () {
+              down();
+            }, 50);
+          })
+          .mouseup(function () {
+            clearInterval(interval);
+          })
+          .mouseleave(function () {
+            clearInterval(interval);
+          }); //<--마우스리브는 세미콜론 앞에 붙여넣기 해줬음
+
+        $(".turnL")
+          .mousedown(function () /* 변수를 css태그에 넣는법 */ {
+            interval = setInterval(function () {
+              turnL();
+            }, 50);
+          })
+          .mouseup(function () {
+            clearInterval(interval);
+          })
+          .mouseleave(function () {
+            clearInterval(interval);
+          });
+
+        $(".turnR")
+          .mousedown(function () {
+            interval = setInterval(function () {
+              turnR();
+            }, 50);
+          })
+          .mouseup(function () {
+            clearInterval(interval);
+          })
+          .mouseleave(function () {
+            clearInterval(interval);
+          });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="box">
+      <div id="tank"></div>
+      <p class="left">left</p>
+      <p class="right">right</p>
+      <p class="up">up</p>
+      <p class="down">down</p>
+      <br /><br />
+      <p class="turnL">turnL</p>
+      <p class="turnR">turnR</p>
+    </div>
+  </body>
+</html>

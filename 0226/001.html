@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      #box1,
+      #box2 {
+        width: 300px;
+        height: 200px;
+        float: left;
+        background-color: beige;
+        border: 2px solid red;
+        margin: 20px; /* 상하좌우 */
+      }
+      .box3 {
+        width: 300px;
+        height: 50;
+        border: 1px solid red;
+        clear: both;
+        margin: 20px;
+        cursor: pointer; /* 커서를 갖다대면 손가락 모양으로 바뀜 */
+      }
+    </style>
+    <!-- style 밑에 스크립트 작성 -->
+    <script>
+      $(function () {
+        $(".btn").click(function () {
+          $("#box1").slideToggle(function () {
+            if ($("#box1").css("display") == "none") {
+              $(".btn img").attr("src", "images/down_gray.png"); //btn밑에 img파일이 있고 down 으로 바꿔주고
+            } else {
+              $(".btn img").attr("src", "images/up_gray.png");
+            }
+          });
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="box1">box1</div>
+    <div id="box2">box2</div>
+    <div class="box3">
+      <p class="btn"><img src="images/up_gray.png" /><!-- alt 생략 --></p>
+    </div>
+  </body>
+</html>

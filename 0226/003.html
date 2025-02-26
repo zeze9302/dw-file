@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 300px;
+        height: 200px;
+        background-color: blue;
+        /* opacity: 0.3; */
+        position: absolute; /* 대열에서 이탈= 하늘로 뜸 */ /* 렐러티브는 자리 보존 */
+        /* 현재 부모 포지션이 없음 -> 스크린이 부모가 된다 = 스크린이 기준 */
+        left: 30px;
+        top: 30px;
+      }
+      button {
+        width: 150px;
+        height: 30px;
+        margin-top: 250px;
+        margin-left: 20px;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $(function () {
+        $("button").on("mouseenter", function () {
+          $("div")
+            .stop()
+            .animate(
+              {
+                top: 200,
+                left: 500,
+              },
+              1000,
+              "swing",
+              function () {
+                $(this).animate({
+                  top: 30,
+                  left: 30,
+                });
+              }
+            );
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div>box1</div>
+    <button>play</button>
+  </body>
+</html>

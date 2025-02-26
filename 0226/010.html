@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Taps 입맛대로 변경@@@@</title>
+
+    <link rel="stylesheet" href="jquery-ui.css" />
+    <!-- 얘가 꼭 있어야 돼요.. -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- 제이쿼리엔진 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.14.1/jquery-ui.min.js"></script>
+    <!-- 제이쿼리UI엔진 -->
+
+    <script>
+      $(function () {
+        $("#tabs").tabs();
+      });
+    </script>
+
+    <style>
+      #tabs {
+        text-align: center;
+      }
+      #tabs ul {
+        /* border: 1px solid red !important; */
+        border: 0;
+        width: 900px;
+        margin: 40px auto;
+        border-bottom: 2px solid #333;
+
+        box-sizing: border-box;
+        padding: 0;
+        background-color: white;
+      }
+      #tabs ul li {
+        float: left;
+        border: 0;
+        margin: 0;
+        padding: 0;
+        outline: 0; /* border밖에는 outline이 있다 */
+        /* background-color: blueviolet; */
+      }
+      #tabs ul li a {
+        display: block;
+        width: 180px;
+        text-align: center;
+        padding: 10px 0;
+        border: 0;
+        /* color: blueviolet; */
+      }
+      /* .ui-state-active {
+        background-color: aquamarine;
+      } */
+
+      .ui-state-active,
+      .ui-widget-content .ui-state-active,
+      .ui-widget-header .ui-state-active,
+      a.ui-button:active,
+      .ui-button:active,
+      .ui-button.ui-state-active:hover {
+        border: 1px solid #003eff;
+        background: violet;
+        font-weight: normal;
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="tabs">
+      <ul>
+        <!-- 상단 타이틀바 -->
+        <li><a href="#tabs-1">벤치마크</a></li>
+        <li><a href="#tabs-2">음식보고서</a></li>
+        <li><a href="#tabs-3">활동보고서</a></li>
+        <li><a href="#tabs-4">수면보고서</a></li>
+        <li><a href="#tabs-5">트레이너</a></li>
+      </ul>
+      <div id="tabs-1">
+        <!-- id 뒤에 숫자, 이미지 숫자 변경 -->
+        <p>
+          사용자 데이터를 전체 fitbit 커뮤니티, 사용자 연령그룹 등과 비교합니다.
+        </p>
+        <img src="images/premium02.png" width="600" alt="벤치마크 이미지" />
+      </div>
+      <div id="tabs-2">
+        <p>
+          사용자 데이터를 전체 fitbit 커뮤니티, 사용자 연령그룹 등과 비교합니다.
+        </p>
+        <img src="images/premium03.png" width="600" alt="벤치마크 이미지" />
+      </div>
+      <div id="tabs-3">
+        <p>
+          사용자 데이터를 전체 fitbit 커뮤니티, 사용자 연령그룹 등과 비교합니다.
+        </p>
+        <img src="images/premium04.png" width="600" alt="벤치마크 이미지" />
+      </div>
+      <div id="tabs-4">
+        <p>
+          사용자 데이터를 전체 fitbit 커뮤니티, 사용자 연령그룹 등과 비교합니다.
+        </p>
+        <img src="images/premium05.png" width="600" alt="벤치마크 이미지" />
+      </div>
+      <div id="tabs-5">
+        <p>
+          사용자 데이터를 전체 fitbit 커뮤니티, 사용자 연령그룹 등과 비교합니다.
+        </p>
+        <img src="images/premium06.png" width="600" alt="벤치마크 이미지" />
+      </div>
+    </div>
+  </body>
+</html>

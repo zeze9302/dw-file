@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      a {
+        text-decoration: none;
+        color: #333;
+      }
+      ul {
+        list-style: none;
+      }
+
+      .menu {
+        width: 200px;
+        height: 150px;
+        margin-left: 30px;
+      }
+      .menu li {
+        height: 50px;
+        border: 1px solid #ccc;
+        text-align: center;
+        line-height: 50px;
+      }
+      .menu li:nth-child(2),
+      .menu li:nth-child(3) {
+        margin-top: -1px; /* 만약 margin-top을 주게 된다면 2,3번째만 주면 되기 때문에 nth로 설정해준다 */
+      }
+      .menu li:hover {
+        background-color: #efefef;
+      }
+      .btn {
+        width: 200px;
+        height: 50px;
+        border: 1px solid #ccc;
+        border-radius: 0 0 10px 10px;
+        margin-left: 30px;
+        margin-top: -1px; /* 서랍의 손잡이 부분으로 일부로 조금 떨어뜨려놓은거라서
+        마진-탑을 줘도 되고 안줘도 된다 */
+        position: relative; /* 이미지가 도망가서 .btn한테 포지션 속성을 줘서 엄마로 만들어줌 */
+      }
+      .btn a {
+        display: block;
+        /* border: 1px solid red; 작업할때 영역을 확인하기 위해서 줬던거라 삭제*/
+        /* text-align: center; */ /* 글씨가 센터라서 이미지까지 봤을때 밸런스를 맞추기 위해 indent(들여쓰기) 사용 */
+        text-indent: 60px; /* 들여쓰기 */
+        line-height: 50px; /* 줄간격 */
+      }
+      .btn img {
+        position: absolute;
+        right: 50px;
+        top: 15px;
+      }
+    </style>
+    <!-- 스타일을 반영하고 엔진 쓰기 -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      /* $(펑션 (){ }); */ /* 문자열은 반드시 ''  */
+      $(function () {
+        $(".menu").slideUp("fast");
+        $(".btn").on("click", function () {
+          $(".menu").slideToggle(function () {
+            if ($(".menu").css("display") == "none") {
+              /* 만약에 메뉴가 슬라이드 토글 (안보여)보이게 바꿔주고 이미지 속성도 다운으로 바꿔라 ....조건문은 ; 안찍음 */
+              $(".btn a").text("Open");
+              $("btn img").attr("src", "images/down.png");
+            } else {
+              /* 그렇지 않으면 open->close로 바꿔주고 down을 up으로 바꿔줘라*/
+              $(".btn a").text("Close");
+              $("btn img").attr("src", "images/up.png");
+            }
+          }); /* 메서드는 세미콜론 꼭 찍기 */
+        }); /* ;을찍어줘서 문을 잘 닫아줘야함 */
+      });
+    </script>
+  </head>
+  <body>
+    <div class="menu">
+      <!-- 슬라이드 업 -->
+      <ul>
+        <li><a href="#">Naver</a></li>
+        <li><a href="#">DaumKaKao</a></li>
+        <li><a href="#">Google</a></li>
+      </ul>
+    </div>
+    <div class="btn">
+      <!-- 슬라이드 x -->
+      <a href="#">Open </a> <img src="images/down.png" />
+      <!-- 이미지가 사라져서 a태그에서 뜯어냄 -->
+    </div>
+  </body>
+</html>
