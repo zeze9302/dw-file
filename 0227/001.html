@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 300px;
+        height: 50px;
+        padding: 20px;
+        border: 1px solid red;
+        margin: 10px;
+        border-radius: 5px;
+        display: flex; /* 부모가 플렉스를 가지면 자식들은 (첫번째박스 2,3,4플렉스 아이템을 가져서 자유로워짐 */
+      }
+      p {
+        width: 300px;
+        height: 30px;
+        background-color: indianred;
+        cursor: pointer;
+        margin: 10px;
+        padding: 10px;
+      }
+      div.on {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background-color: lightblue;
+        border-color: blue;
+        align-items: center; /* 텍스트얼라인,라인하이뜨 줄 수 있지만 글이 많을 수 있어서 얼라인 아이템, 저스티파이를 줌 */
+        justify-content: center;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $(function () {
+        /*  $(".btn1").on(
+          "click",
+          function () on은 많은 이벤트를 가지고 있음(문자열) {
+            $(".box2").addClass("on");
+          }
+        );
+        $(".btn2").on("click", function () {
+          $(".box2").removeClass("on");
+        }); */
+        $(".btn1").on("click", function () {
+          $(".box2").toggleClass(
+            "on"
+          ); /* 버튼1번을 클릭하면 변신되므로 ; 뒤에 이어서 작성 */
+          if ($(".box2").attr("class") == "box2 on") {
+            /* box2와 on이라는 클라스가 박스2와 on이 참이면 사각으로 바꾸기, 그렇지 않으면 원으로 바꾸기 */
+            $(".btn1").text("사각으로 바꾸기");
+          } else {
+            $(".btn1").text("원으로 바꾸기");
+          }
+        });
+        $(".btn3").on("click", function () {
+          $(".box3").remove();
+        });
+        $(".btn4").on("click", function () {
+          $(".box1").empty();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="box1">첫번째 박스</div>
+    <div class="box2">두번째 박스</div>
+    <!-- box2 한칸 띄우고 on을 쓰면 클래스를 임시로 2개 가짐 -->
+    <div class="box3">세번째 박스</div>
+    <div class="box4">네번째 박스</div>
+    <p class="btn1">
+      <!-- 버튼1 --><!-- 두번째 박스를 -->
+      원으로 바꾸기
+    </p>
+    <!-- add클래스 -->
+    <p class="btn2"><!-- 버튼2 --></p>
+    <!-- remove도 알기 위해서 버튼2 추가 -->
+    <p class="btn3"><!-- 버튼3 --></p>
+    <!-- 클래스를 사용하지 않을 때는 nth-child사용 가능 -->
+    <p class="btn4"><!-- 버튼4 --></p>
+  </body>
+</html>

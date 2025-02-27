@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>동영상 제어</title>
+    <style>
+      .box {
+        border: 1px solid #ccc;
+        text-align: center; /* 인라인 블럭이어서 중앙정령 가능 */
+      }
+      video {
+        border: 1px solid red;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        width: 800px;
+        margin: auto;
+      }
+      li {
+        display: inline-block;
+        width: 150px;
+        height: 50px;
+        cursor: pointer;
+        font-size: 25px;
+        font-weight: bold;
+        border: 2px solid red;
+        text-align: center;
+        line-height: 50px;
+      }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+      $(function () {
+        var video = $("video").get(0);
+
+        /* var vid 라고 적으면 아래부분도 vid라고 적어야함,
+        변수에 적혀있는 글씨를 꼭 아래에도 똑같이 적용해야함 */
+        /* 예약문을 꼭 작성해야 실행된다 */
+        /* 변수는 상단에 노출을 시킨다 */
+        /* .get(); 이것을 꼭 줘야함 */
+        $(".play").click(function () {
+          video.play();
+        });
+        $(".stop").click(function () {
+          video.pause();
+          video.currentTime = 0;
+        });
+        //.stop()메서드는 애니에서만 사용가능..비디오에서는 동작불가
+        //이를 대신하기 위에와 같이 응용한다
+        $(".pause").click(function () {
+          video.pause();
+        });
+        $(".muted").click(function () {
+          video.muted = true;
+        });
+        $(".mute_off").click(function () {
+          video.muted = false;
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="box">
+      <video autoplay muted loop>
+        <!-- controls -->
+        <!-- 동영상 밑에 버튼을 만들기 위해 컨트롤스 임시 주석처리 -->
+        <!-- playsinline -->
+        <!-- muted를 주지 않으면 오토플레이가 안됨 -->
+        <source src="img/ost.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <ul>
+      <li class="play">play</li>
+      <li class="stop">stop</li>
+      <li class="pause">pause</li>
+      <li class="mute">mute</li>
+      <li class="mute_off">mute off</li>
+      <!-- 클래스에서 띄어쓰기 하면 2개로 인식 ,,띄어쓰기는 반드시 _언더바를 줘야함 --><!-- 뮤트를 해제 -->
+    </ul>
+  </body>
+</html>

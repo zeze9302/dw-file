@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>사이드 메뉴 버튼</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #656565;
+      }
+      header {
+        background-color: white;
+        height: auto;
+        /* height: 120px; */
+        border: 1px solid red;
+      }
+      header h1 {
+        width: 1000px;
+        height: 100px;
+        margin: 10px auto;
+        padding-left: 20px; /* 들여쓰기처럼 띄어쓰기가 됨 */
+        line-height: 100px;
+        border: 1px solid #ccc;
+        margin-top: 10px;
+      }
+      main {
+        height: 600px;
+      }
+      /* footer {
+        border: 1px solid #ccc;
+      } */
+      footer small {
+        display: block;
+        width: 100%;
+        border: 1px solid #ccc;
+        padding: 20px;
+        text-align: center;
+      }
+      /* small은 인라인요소 */
+      aside {
+        background-color: rgba(0, 0, 0, 0.7);
+        width: 350px;
+        height: 100%;
+        position: fixed; /* 스크롤을 움직여도 절대 고정 */
+        top: 0;
+        left: -350px;
+        transition: all 0.5s ease-in; /* transition은 바뀌기 전단계에 줘야한다 */
+      } /* aside는 블록 */
+      .open {
+        /* border: 3px solid red; */
+        left: 0;
+      }
+      aside ul {
+        list-style: none;
+        border: 1px solid red;
+        position: absolute;
+        top: 50px;
+        left: 114px;
+      }
+      ul li {
+        margin: 0 0 20px;
+      }
+      aside button {
+        background-color: rgba(0, 0, 0, 0.7);
+        display: block;
+        position: absolute;
+        top: 180px;
+        left: 350px;
+        width: 52px; /* <<-이미지 사이즈에 맞춰서 사이즈 만듦 */
+        height: 132px;
+        border: none;
+        cursor: pointer; /* a태그에는 커서가 되지만 button인데도 바뀌지않아서 따로 줘야함 */
+      } /* tap으로 쉼표 이동 가능 */
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.14.1/jquery-ui.min.js
+"></script>
+
+    <script>
+      $(function () {
+        var duration = 300; /* 속도 */
+        var aside = $("aside"); /* 박스 전체를 감싸고 있는 aside */
+        var button = aside.find("button");
+
+        button.on("click", function () {
+          aside.toggleClass("open"); /* 토글 : 줬다 뺏었다 */
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>Creative jQuery</h1>
+    </header>
+    <main>
+      <aside>
+        <ul>
+          <li>
+            <a href="#"><img src="img/01_aside.png" /></a>
+          </li>
+          <li>
+            <a href="#"><img src="img/02_aside.png" /></a>
+          </li>
+          <li>
+            <a href="#"><img src="img/03_aside.png" /></a>
+          </li>
+        </ul>
+        <button><img src="img/btn_open.png" /></button>
+      </aside>
+    </main>
+    <footer>
+      <small>copyright all right reserved. &copy; jihye company</small>
+      <!-- 카피 레프트는 저작권x 마음대로 가져다써라 copt free -->
+    </footer>
+  </body>
+</html>

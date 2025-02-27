@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>기본적인 구조 sample</title>
+    <style>
+      div {
+        width: 300px;
+        height: 50px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        margin: 10px;
+        border-radius: 5px;
+      }
+      .box {
+        width: 500px;
+        height: auto;
+        border-radius: 0;
+        background-color: burlywood;
+      }
+      .apple {
+        background-color: red;
+      }
+      .banana {
+        background-color: yellow;
+      }
+      .orange {
+        background-color: orange;
+      }
+      .mango {
+        background-color: yellowgreen;
+      }
+      /* .mango {
+        background-color: indianred;
+      } */
+      p {
+        width: 200px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        border: 2px solid red;
+        margin: 10px;
+        cursor: pointer;
+        display: inline-block; /* 예제라서 자리 넓으니 세로에서 가로로 변경 */
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $(function () {
+        var basket = $(".box");
+        var apple = $(".apple");
+        var banana = $(".banana"),
+          orange = $(".orange"),
+          mango = $(".mango");
+        var img = $(
+          '<img src="img/01_aside.png" alt="튤립">'
+        ); /* ...... <- / : ~밑에 */
+        /* 한줄 한줄 정의해도 되고 쉼표를 사용해 쭉 이어서 써도 된다 (마지막에 꼭 세미콜론) */
+        /* var변수는 .을 꼭 찍어야함 */
+
+        $("p:nth-of-type(1)").on("click", function () {
+          basket.append(apple); /* <-변수가 아니기 때문에 . 안찍음 */
+        }); /* p태그 중에서 첫번째 앤스 차일는 p태그가 아닌것도 태그해서 오브 타입으로 사용 */ /* append 기존 컨텐츠 뒤에 담는다  */
+        $("p:nth-of-type(2)").on("click", function () {
+          banana.appendTo(basket);
+        }); /* 어팬드 투: 바나나를 어디어디에 담을거야 */
+        /* 기존 컨텐츠 뒤에 담는다.. 담을 목적지를 뒤에 작성 */
+        /* 기존컨텐츠 밑으로 */
+        $("p:nth-of-type(3)").on("click", function () {
+          basket.prepend(orange);
+        }); /* 프래팬드 : 어디에 무엇을 담을거야 오렌지 */
+        /* 기존 컨텐츠(텍스트) 위로 */
+        $("p:nth-of-type(4)").on("click", function () {
+          mango.prependTo(basket);
+        }); /* 텍스트 위로 올라감 */ /* 무엇 이전으로 */
+        $("p:nth-of-type(5)").on("click", function () {
+          basket.append(img);
+        }); /* 컨텐츠(텍스트) 바로 (옆) 뒤쪽에 이미지가 위치함 */
+      });
+    </script>
+  </head>
+  <body>
+    <div class="box">나는 과일을 담을 박스</div>
+    <div class="apple">apple</div>
+    <div class="banana">banana</div>
+    <div class="orange">orange</div>
+    <div class="mango">mango</div>
+    <p>apple</p>
+    <!-- 버튼 태그 안쓰고 블록 p태그로 만듦  -->
+    <p>banana</p>
+    <p>orange</p>
+    <p>mango</p>
+    <p>img</p>
+    <p>처음 그대로..</p>
+  </body>
+</html>

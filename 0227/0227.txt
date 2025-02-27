@@ -1,0 +1,45 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.14.1/jquery-ui.min.js
+"></script>
+
+min : 띄어쓰기 없이 붙임
+
+
+<style>
+
+</style>
+스타일이 끝나고
+
+제이쿼리엔진
+제이쿼리ui
+
+inout이 어디있는거지//?
+callback은 어디있는거지..?
+
+chaining보다 callback을 더 많이 사용
+
+클릭은(업, 다운이 다 있음) 
+
+
+선택자
+div:nth-child(ex 1)
+div:nth-of-type(ex 2)
+$('div').eq(0) : 0부터 시작...
+
+:nth-child(1) = 선택한 태그를 기준으로 카운트 하지 않고, 다른 요소와 함께 카운트 한다.
+여러 요소와 섞여 있을 때는 가급적 
+:nth-of-type()을 사용한다.
+
+
+
+jQuery - css() Method
+
+1. $("p").css({"background-color": "yellow", "font-size": "200%"});
+
+2. $("p").css({backgroundColor: "yellow", "font-size": "200%"});
+1번 2번 동일함
+
+
+

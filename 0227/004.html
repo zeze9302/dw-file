@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>수정하는 내용</title>
+    <style>
+      div {
+        width: 500px;
+        height: 200px;
+        border: 2px solid red;
+        border-radius: 5px;
+        margin: 10px;
+      }
+      .apple {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: red;
+        padding: 10px;
+        margin: 10px;
+      }
+
+      p {
+        width: 300px;
+        height: 30px;
+        border: 2px solid red;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $(function () {
+        /*  var basket = $(".box1");
+        var basket = $('.box2'); */
+        var apple = $(".apple");
+
+        /* $("p:nth-of-type(1)").on("click", function () {
+        apple.appendTo('.box1');
+      });
+        $("p:nth-of-type(2)").on("click", function () {
+        apple.appendTo('.box2');
+      });  */
+        $("p:nth-of-type(1)").on("click", function () {
+          $(".box1").append(apple);
+        });
+        $("p:nth-of-type(2)").on("click", function () {
+          $(".box2").append(apple);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="box1">box1</div>
+    <p>박스1로 옮기기</p>
+    <div class="box2">
+      box2
+      <div class="apple">apple</div>
+    </div>
+    <p>박스2로 옮기기</p>
+    <!-- <div class="box2">box2<div class="apple on">apple</div></div> -->
+    <!-- 이렇게 하면 박스 안에 담길 수 있지만 제이쿼리로 담아준다 -->
+  </body>
+</html>
