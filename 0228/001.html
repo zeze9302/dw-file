@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      섹션 넘어가는 이미지로 배너 만들기/ 3s 변경되는 메인 슬라이드 쇼,다운
+    </title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      ul {
+        list-style: none;
+      }
+      div {
+        list-style: none;
+        width: 1000px;
+        height: 320px;
+        margin: auto;
+        border: 5px solid #333;
+        background-color: #111;
+        margin-top: 300px;
+        overflow: hidden; /* 오버플로우 히든@을 줌으로써 번갈아가면서 사진이 보여짐 */
+      }
+      ul {
+        position: relative;
+      }
+      li {
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      //unction뒤에는 항상 옆에 (){};
+      $(function () {
+        $("ul li").eq(0).siblings().css("top", "-320px");
+        var slide = 0;
+        //몇번 슬라이드를 하는지 알기 위해 변수를 줬음 , 숫자를 셀 때 0이 먼저다
+
+        setInterval(function () {
+          if (slide < 2) {
+            slide++;
+          } else {
+            slide = 0;
+          }
+
+          $("ul li").eq(slide).siblings().css("z-index", 0);
+          $("ul li").eq(slide).siblings().animate({ top: "-320px" }, 500);
+          $("ul li").eq(slide).siblings().css("z-index", 100);
+          $("ul li").eq(slide).animate({ top: 0 }, 500);
+        }, 3000);
+        //set인터벌 일정한 시간동안 반복
+      });
+    </script>
+  </head>
+  <body>
+    <div>
+      <ul>
+        <li><img src="images/01.jpg" /></li>
+        <li><img src="images/02.jpg" /></li>
+        <li><img src="images/03.jpg" /></li>
+      </ul>
+    </div>
+  </body>
+</html>

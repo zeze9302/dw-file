@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>fade in, out 슬라이드 배너 만들기</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      ul {
+        list-style: none;
+      }
+      div {
+        list-style: none;
+        width: 1000px;
+        height: 320px;
+        margin: auto;
+        border: 5px solid #333;
+        background-color: #111;
+        margin-top: 300px;
+        overflow: hidden;
+      }
+      ul {
+        position: relative;
+      }
+      li {
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $(function () {
+        $("ul li:gt(0)").hide();
+
+        setInterval(function () {
+          $("ul li:first-child")
+            .fadeOut()
+            .next("li")
+            .fadeIn()
+            .end()
+            .appendTo("ul");
+        }, 3000);
+      });
+    </script>
+  </head>
+  <body>
+    <div>
+      <ul>
+        <li><img src="images/01.jpg" /></li>
+        <li><img src="images/02.jpg" /></li>
+        <li><img src="images/03.jpg" /></li>
+      </ul>
+    </div>
+  </body>
+</html>

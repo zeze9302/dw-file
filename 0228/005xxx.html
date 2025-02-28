@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>연습문제 엉망징창</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      /* div {
+        position: relative;
+        left: 10px;
+        top: 100px;
+        display: none;
+      }
+
+      #t1,
+      #t2 {
+        width: 200px;
+        height: 200px;
+        margin: auto;
+        border: 1px solid red;
+        float: left;
+        position: absolute;
+      }
+
+      #draggable {
+        border: 1px solid red;
+      }
+
+      p {
+        width: 200px;
+        height: 200px;
+        border: 5px solid #ccc;
+      } */
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.14.1/jquery-ui.min.js
+"></script>
+
+    <script>
+      $(function () {
+        $("#draggable").draggable();
+      });
+      $("p").click(function () {
+        $("#draggable").fadeIn();
+      });
+    </script>
+  </head>
+  <body>
+    <div id="draggable">
+      <ul>
+        <li id="t1">ddd22<img src="images/window.png" /></li>
+        <li id="t2"><img src="images/close.png" /></li>
+      </ul>
+    </div>
+    <p>나는버튼</p>
+  </body>
+</html>

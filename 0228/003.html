@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>반응형 네비게이션 pc,ta,mo 3번에 이어서 ++++</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: url(images/windmill.jpg) no-repeat center center fixed;
+        background-size: cover; /* ★이미지가 가로 기준 꽉 차게, contain 은 세로기준 */
+      }
+      nav {
+        height: 40px;
+        background-color: lightseagreen;
+        font-weight: bold;
+        border-bottom: 2px solid #999;
+      }
+      ul {
+        width: 900px; /* 고정 */
+        margin: auto;
+        height: 40px; /* ul한테 높이를 줘서 쪼그라들지 않음 */
+        /* border: 1px solid red; */
+        list-style: none;
+      }
+      li {
+        float: left; /* 가로정렬 */
+      }
+
+      /* li a -> nav a */
+      nav a {
+        display: inline-block;
+        width: 150px; /* 900 나누기 6 (li는 6개) */
+        text-decoration: none;
+        color: white;
+        text-align: center;
+        line-height: 40px;
+        text-shadow: 1px 1px 0 #000; /* x, y, 블러, 컬러 */
+        border-right: 1px solid #ccc;
+        box-sizing: border-box; /* 위에 보더를 줘서 내려왔기 때문에 박스 사이징을 줘야함 */
+      }
+      a:hover {
+        background-color: darkcyan;
+      }
+      li:nth-of-type(6) /* li:nth 띄우지 말기, li 밑에 a 태그가 있기 때문에 보더 앞에 a를 줘야 정상작동 */ 
+        a {
+        border-right: 0;
+      }
+      #trigger {
+        display: none;
+      } /* 필요할때만 부르려고 메뉴를 임시로 없앰 */
+
+      /* 여기부터 태블릿 구간 */
+      /* all or screen 사용 가능 */
+      /* max : 이하 */
+      /* 미디어 스크린 태블릿, 모바일을 기본 틀을 먼저 만들어주고 이하 내용 작성 */
+      /* @media screen and (max-width: 1024px) { } */
+      /* @media screen and(max-width:500px) { } */
+      @media screen and (max-width: 1024px) {
+        nav {
+          border: 1px solid #666;
+          font-size: 14px;
+          font-weight: normal; /* 원점으로 돌리기 */
+        }
+        ul {
+          width: 80%;
+        }
+        li {
+          width: 16.6%; /* li 100나누기6 */
+          height: 40px;
+        }
+        li a {
+          width: 100%;
+          text-shadow: none;
+        }
+      }
+
+      /* 여기부터 모바일 구간 */
+      @media screen and (max-width: 500px) {
+        nav {
+          border-bottom: 0;
+          background-color: indianred; /* 입맛에 맞게 변경 */
+        }
+        ul {
+          display: none;
+          height: auto;
+          width: 100%;
+        }
+        li {
+          float: none;
+          width: 100%;
+        }
+        li a {
+          width: 100%;
+        }
+        nav a:hover {
+          background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        #trigger {
+          display: block;
+          border-bottom: 1px solid #222;
+          position: relative;
+          width: 100%;
+        }
+        /* after(가상선택자) 부모가 a태그 */
+        #trigger:after {
+          content: "";
+          background: url(images/nav.png) no-repeat;
+          width: 20px;
+          height: 20px; /* nav이미지가 20px */
+          display: inline-block;
+          position: absolute;
+          right: 20px;
+          top: 10px;
+        }
+      }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+      $(function () {
+        var trigger = $("#trigger");
+        var menu = $("nav ul");
+
+        trigger.click(function () {
+          menu.slideToggle();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">ABOUT</a></li>
+        <li><a href="#">WEP</a></li>
+        <li><a href="#">DESIGN</a></li>
+        <li><a href="#">MAP</a></li>
+        <li><a href="#">CONTACT</a></li>
+      </ul>
+      <a href="#" id="trigger">MENU</a>
+      <!-- 모바일 창 크기일 때 메뉴 버튼이 되게 따로 관리 -->
+    </nav>
+  </body>
+</html>

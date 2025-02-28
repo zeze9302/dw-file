@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>제이쿼리 slide imagees</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      h1 {
+        text-align: center;
+        margin-top: 50px;
+      }
+      .slider {
+        width: 960px;
+        margin: 100px auto;
+      }
+    </style>
+
+    <link rel="stylesheet" href="slick/slick.css" />
+    <!-- 3 슬릭이 원하는 디자인 -->
+    <link rel="stylesheet" href="slick/slick-theme.css" />
+    <!-- 4 스크립트가 원하는 디자인-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- 1 -->
+
+    <script src="slick/slick.js"></script>
+    <!-- 2 -->
+
+    <script>
+      $(function () {
+        $(".slider").slick({
+          dots: true,
+        });
+      });
+      // 슬릭.js에서 변경 49
+      //dots:true는 여기서 제어
+      //dot 크기를 변경하려고 슬릭-테마.css에서 확인함 165줄
+      // < > 수정하려고 69에서 사이즈 변경
+      //테마.css 화살표 디자인 변경 86 106
+    </script>
+
+    <style>
+      /* 위에 링크를 걸어놨기 때문에 본문에 가서 바꿀 수 도 있지만 여기에 써야 최종 적용됨 */
+      /* style이 2개 */
+      .slick-prev:before,
+      .slick-next:before {
+        color: red;
+      }
+      .slick-prev,
+      .slick-next {
+        position: absolute;
+        z-index: 1000;
+      }
+      .slick-prev {
+        left: 20px;
+      }
+      .slick-next {
+        right: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 구조를 먼저 만들고 섹션 클래스를 줌 -->
+    <h1>슬라이드 이미지 만들기</h1>
+    <section class="slider">
+      <div>
+        <img src="images/01.jpg" />
+      </div>
+      <div>
+        <img src="images/02.jpg" />
+      </div>
+      <div>
+        <img src="images/03.jpg" />
+      </div>
+      <div>
+        <img src="images/04.jpg" />
+      </div>
+      <div>
+        <img src="images/05.jpg" />
+      </div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Avengers</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-image: url(images2/andgame2.jpg);
+      }
+
+      .mainlogo {
+        position: absolute;
+        right: -15%;
+        top: 20%;
+        transform: translate(-50%, -50%);
+      }
+
+      .btn {
+        display: block;
+        animation-name: ani;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+        animation-direction: alternate;
+        animation-timing-function: ease-in-out;
+      }
+
+      @keyframes ani {
+        0% {
+          transform: scale(0.7);
+          opacity: 0.3;
+        }
+
+        100% {
+          transform: scale(0.9);
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <p class="mainlogo">
+        <a class="btn" href="#">
+          <img src="images2/andgamelogo.png" alt="어벤져스로고" />
+        </a>
+      </p>
+    </div>
+  </body>
+</html>

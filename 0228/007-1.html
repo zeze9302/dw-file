@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>아모르게따 실전편 ..전체 메뉴보기</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-size: 13px;
+        color: #333;
+      }
+      a {
+        text-decoration: none;
+        color: #333;
+      }
+      a:hover {
+        color: yellow;
+      }
+      ul {
+        list-style: none;
+      }
+      nav {
+        width: 960px;
+        margin: 0 auto; /* 위,아래 0 좌,우 auto */
+      }
+
+      #main {
+        background-color: #4d4d4d;
+        padding: 10px 0;
+      }
+      #main ul {
+        overflow: hidden;
+      }
+      #main li {
+        /* 960나누기5 */
+        width: 192px;
+        float: left;
+        text-align: center;
+      }
+      #main li a {
+        color: white;
+      }
+
+      #sub {
+        background-color: rgba(0, 0, 0, 0.4);
+        border-bottom: 1px solid #ccc;
+        overflow: hidden; /* 자식들을 인지하게 하려고 줌.. 이것을 주지 않으면 납작하게 위에 붙어있기 때문에 ul 5개들이 인식하도록 ,찾도록 세팅 */
+        position: absolute;
+      }
+      .menu {
+        width: 192px;
+        float: left; /* 가로로 정렬 */
+      }
+      .menu a {
+        display: block;
+        padding: 7px 0;
+        text-indent: 60px;
+      }
+      p {
+        text-align: center;
+      }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+      /* . 또는 소괄호는 메서드 */ /* 대괄호 뒤에 쉼표는 그리고 라는 뜻 */
+      $(function () {
+        $("#sub").hide();
+        $("nav").hover(
+          function () {
+            $("#sub").stop().slideDown(); //슬라이드 다운, 업을 먼저 작성하고 확인 하였는데 마우스를 갖다댄 숫자에 맞춰 계속 수행을 해서 꼭 스탑^^^을 넣어줘야함
+          },
+          function () {
+            $("#sub").stop().slideUp();
+          }
+        );
+      });
+    </script>
+  </head>
+  <body>
+    <nav>
+      <div id="main">
+        <ul>
+          <li><a href="#">타슈</a></li>
+          <li><a href="#">스테이션조회</a></li>
+          <li><a href="#">이용방법</a></li>
+          <li><a href="#">마이타슈</a></li>
+          <li><a href="#">고객센터</a></li>
+        </ul>
+      </div>
+
+      <div id="sub">
+        <ul class="menu">
+          <li><a href="#">타슈소개01</a></li>
+          <li><a href="#">이용안내</a></li>
+          <li><a href="#">서비스안내</a></li>
+          <li><a href="#">의무와 책임</a></li>
+        </ul>
+
+        <ul class="menu">
+          <li><a href="#">타슈소개02</a></li>
+          <li><a href="#">이용안내</a></li>
+          <li><a href="#">서비스안내</a></li>
+          <li><a href="#">의무와 책임</a></li>
+        </ul>
+        <ul class="menu">
+          <li><a href="#">타슈소개03</a></li>
+          <li><a href="#">이용안내</a></li>
+          <li><a href="#">서비스안내</a></li>
+          <li><a href="#">의무와 책임</a></li>
+        </ul>
+        <ul class="menu">
+          <li><a href="#">타슈소개04</a></li>
+          <li><a href="#">이용안내</a></li>
+          <li><a href="#">서비스안내</a></li>
+          <li><a href="#">의무와 책임</a></li>
+        </ul>
+        <ul class="menu">
+          <li><a href="#">타슈소개05</a></li>
+          <li><a href="#">이용안내</a></li>
+          <li><a href="#">서비스안내</a></li>
+          <li><a href="#">의무와 책임</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div id="box">
+      <p><img src="http://placehold.co/960x480" /></p>
+      <!-- 이미지를 급조할때 알아서 만들어줌 -->
+    </div>
+  </body>
+</html>

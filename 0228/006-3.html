@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>연습문제 같이 해보기 .........졸라 어렵네</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-size: 12px; /* 국문은 한계가 11px, 12px은 줘야 가독성이 괜찮다 */
+      }
+      a {
+        color: #333;
+        text-decoration: none;
+      }
+
+      .btn {
+        display: block;
+        width: 300px;
+        height: 30px;
+        margin: 100px;
+      }
+
+      #window {
+        width: 456px;
+        height: 364px;
+        position: absolute;
+        top: 300px;
+        left: 400px;
+
+        background-image: url(images/window.png); /* <------현재 내용 넣기전에 이해 안됨 */
+        display: none; /* 움직이는걸 확인 한 후 없앰 */
+      }
+      #window a.close {
+        position: absolute;
+        right: 10px;
+        top: 7px;
+      } /* .close가 이해안됨 */
+      dl {
+        width: 100%;
+        height: 100%;
+      }
+      dt {
+        color: white;
+        font-weight: bold;
+        height: 40px;
+        line-height: 40px;
+        text-indent: 20px;
+      }
+      dd {
+        padding: 20px; /* 안쪽여백 */
+      }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.14.1/jquery-ui.min.js
+"></script>
+
+    <script>
+      $(function () {
+        $("#window").draggable();
+
+        $(".btn").click(function () {
+          $("#window").fadeIn(300);
+        });
+
+        $(".close").click(function () {
+          $("#window").fadeOut(500);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <a href="#" class="btn">Open window</a>
+    <div id="window">
+      <a href="#" class="close"><img src="images/close.png" /></a>
+      <!-- dl 정의형 목록 -->
+      <dl>
+        <dt>드래거블 윈도우 만들기</dt>
+        <dd>
+          윈도우창의 내용이 여기에 들어갑니다...윈도우창의 내용이 여기에
+          들어갑니다...윈도우창의 내용이 여기에 들어갑니다...윈도우창의 내용이
+          여기에 들어갑니다...윈도우창의 내용이 여기에 들어갑니다...윈도우창의
+          내용이 여기에 들어갑니다...윈도우창의 내용이 여기에
+          들어갑니다...윈도우창의 내용이 여기에 들어갑니다...윈도우창의 내용이
+          여기에 들어갑니다...윈도우창의 내용이 여기에 들어갑니다...윈도우창의
+          내용이 여기에 들어갑니다...윈도우창의 내용이 여기에
+          들어갑니다...윈도우창의 내용이 여기에 들어갑니다...윈도우창의 내용이
+          여기에 들어갑니다...윈도우창의 내용이 여기에 들어갑니다...윈도우창의
+          내용이 여기에 들어갑니다...윈도우창의 내용이 여기에
+          들어갑니다...윈도우창의 내용이 여기에 들어갑니다...윈도우창의 내용이
+          여기에 들어갑니다...윈도우창의 내용이 여기에 들어갑니다...윈도우창의
+          내용이 여기에 들어갑니다...윈도우창의 내용이 여기에
+          들어갑니다...윈도우창의 내용이 여기에 들어갑니다...윈도우창의 내용이
+          여기에 들어갑니다...윈도우창의 내용이 여기에 들어갑니다...윈도우창의
+          내용이 여기에 들어갑니다...윈도우창의 내용이 여기에
+          들어갑니다...윈도우창의 내용이 여기에 들어갑니다...
+        </dd>
+      </dl>
+    </div>
+  </body>
+</html>

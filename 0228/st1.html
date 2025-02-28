@@ -1,0 +1,120 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: beige;
+      }
+      .mon {
+        position: relative;
+        animation: moveAndRotate2 4s ease-in-out infinite;
+        top: 60px;
+      }
+      .mon .pica1 {
+        position: absolute;
+        display: flex;
+        opacity: 1;
+        animation: rotate1 2s ease-in-out infinite;
+      }
+      .mon .pica2 {
+        opacity: 0;
+        position: absolute;
+        display: flex;
+        animation: rotate2 2s ease-in-out infinite;
+      }
+      .rock {
+        position: absolute;
+        top: 0%;
+        animation: moveRock 1.9s ease-in-out infinite;
+      }
+      .shork {
+        position: absolute;
+        opacity: 0;
+        z-index: 1;
+        left: 20px;
+        transform: scale(0.7);
+        animation: shk 0.1s ease-in-out 1s forwards,
+          repeatShk 4s ease-in-out 2s infinite;
+      }
+
+      @keyframes shk {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @keyframes repeatShk {
+        0% {
+          opacity: 0;
+        }
+        25% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @keyframes rotate1 {
+        0% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      @keyframes rotate2 {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      @keyframes moveRock {
+        0% {
+          transform: translateX(65vw);
+        }
+        50% {
+          transform: translateX(3vw);
+        }
+        100% {
+          transform: translateX(100vw);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="rbox">
+      <a><img class="rock" src="images2/rock.png" alt="Image" /></a>
+    </div>
+    <div class="shork">
+      <img src="images2/shock.png" />
+    </div>
+    <div class="mon">
+      <a><img class="pica1" src="images2/bat (2).png" alt="Image" /></a>
+      <a><img class="pica2" src="images2/bat (1).png" alt="Image" /></a>
+    </div>
+
+    <a href="연습장2.html">참고용</a>
+  </body>
+</html>
