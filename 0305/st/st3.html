@@ -1,0 +1,190 @@
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Image Sequence (1~200) + jQuery + Video</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        background: #fafafa;
+      }
+      .container {
+        width: 800px;
+        margin: 50px auto;
+        text-align: center;
+      }
+      /* 이미지를 표시할 태그 */
+      #frame {
+        width: 600px;
+        height: auto;
+        border: 2px solid #ccc;
+        margin-bottom: 10px;
+      }
+      /* 동영상 플레이어 */
+      #myVideo {
+        width: 600px;
+        margin-bottom: 10px;
+        outline: 2px solid #ccc;
+      }
+      /* 컨트롤 버튼 */
+      .controls {
+        margin: 10px 0;
+      }
+      button {
+        margin: 0 5px;
+        padding: 8px 16px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      /* 현재 프레임 표시 */
+      .status {
+        margin-top: 10px;
+        font-size: 18px;
+      }
+      /* 마우스 좌표 및 퍼센트 표시 영역 */
+      .mouse-info {
+        margin: 10px 0;
+        font-size: 16px;
+      }
+      /* section 예시 (이미지) */
+      section {
+        margin: 20px;
+        text-align: center;
+      }
+      section img {
+        max-width: 100px;
+        border: 1px solid #666;
+        margin: 5px;
+      }
+    </style>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Image Sequence (1 ~ 200) + Video</h1>
+
+      <!-- 동영상 플레이어 -->
+      <video id="myVideo" controls="">
+        <source src="./to.mp4" type="video/mp4" />
+        <!-- 대체 텍스트 -->
+        Your browser does not support the video tag.
+      </video>
+
+      <!-- 이미지를 표시할 태그 -->
+      <img id="frame" src="./img2/pic200.jpg" alt="Image Frame" />
+
+      <!-- 컨트롤 버튼 -->
+      <div class="controls">
+        <button id="playBtn">Play</button>
+        <button id="stopBtn">Stop</button>
+      </div>
+
+      <!-- 상태 표시 -->
+      <div class="status">
+        현재 프레임: <span id="frameNum">200</span> / 200
+      </div>
+
+      <!-- 마우스 좌표 / 프레임 퍼센트 표시 -->
+      <div class="mouse-info">
+        X: <span class="posX">1663</span>, Y: <span class="posY">193</span>,
+        Frame%: <span class="percent">100</span>
+      </div>
+    </div>
+
+    <!-- 임의 section (이미지들) -->
+    <section>
+      <p>이 영역의 이미지는 예시로 숨기거나 보여줄 수 있음</p>
+      <img src="./img2/pic10.jpg" alt="sample1" style="display: none" />
+      <img src="./img2/pic50.jpg" alt="sample2" style="display: none" />
+      <img src="./img2/pic100.jpg" alt="sample3" style="display: none" />
+    </section>
+
+    <script>
+      const frameImg = document.getElementById("frame");
+      const frameNumEl = document.getElementById("frameNum");
+      const videoPlayer = document.getElementById("myVideo");
+
+      let currentFrame = 1; // 현재 프레임 (1 ~ 200)
+      let maxFrame = 200; // 최대 프레임
+      let intervalId = null; // setInterval 아이디 (자동재생)
+
+      // 프레임 업데이트 함수
+      function updateFrame() {
+        // 파일명: pic1.jpg ~ pic200.jpg
+        const fileName = `pic${currentFrame}.jpg`;
+        frameImg.src = `./img2/${fileName}`;
+        frameNumEl.textContent = currentFrame;
+      }
+
+      // 자동재생(Play) 함수
+      function play() {
+        // 이미 재생 중이면 중복 시작 방지
+        if (intervalId !== null) return;
+
+        // 동영상도 재생
+        videoPlayer.currentTime = 0; // 처음부터
+        videoPlayer.play();
+
+        intervalId = setInterval(() => {
+          currentFrame++;
+          if (currentFrame > maxFrame) {
+            // 마지막 프레임까지 간 경우 다시 처음으로
+            currentFrame = 1;
+          }
+          updateFrame();
+        }, 100); // 0.1초마다 다음 프레임
+      }
+
+      // 정지(Stop) 함수
+      function stop() {
+        if (intervalId !== null) {
+          clearInterval(intervalId);
+          intervalId = null;
+        }
+        // 동영상도 중단 + 처음으로
+        videoPlayer.pause();
+        videoPlayer.currentTime = 0;
+      }
+
+      // 버튼 이벤트
+      document.getElementById("playBtn").addEventListener("click", play);
+      document.getElementById("stopBtn").addEventListener("click", stop);
+
+      // 초기 상태
+      updateFrame();
+
+      // jQuery 마우스 로직
+      $(function () {
+        $(window).on("mousemove", function (e) {
+          // 자동재생 중이면 마우스 로직 무시 (원한다면 제거 가능)
+          if (intervalId !== null) return;
+
+          const x = e.pageX;
+          const y = e.pageY;
+          const winW = $(window).width();
+
+          // 1) x좌표 -> 프레임 계산
+          //    0 <= x < winW
+          //    frame = floor( (x / winW) * 200 ) + 1
+          let frame = Math.floor((x / winW) * maxFrame) + 1;
+          if (frame < 1) frame = 1;
+          if (frame > maxFrame) frame = maxFrame;
+
+          currentFrame = frame;
+          updateFrame();
+
+          // 2) 화면 표시 (posX, posY, percent)
+          $(".posX").text(x);
+          $(".posY").text(y);
+          let percentVal = Math.floor((frame / maxFrame) * 100);
+          $(".percent").text(percentVal);
+
+          // 3) 'section img' 숨기기 예시 (사용자가 원하는 동작)
+          $("section img").hide();
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>x,y 마우스컨트롤</title>
+    <style>
+      body {
+        width: 3000px;
+        height: 3000px;
+      }
+      div:nth-child(1) {
+        position: fixed;
+        left: 30px;
+        top: 30px;
+      }
+      span {
+        color: red;
+        font-size: 18px;
+        font-weight: bold;
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        border: 1px solid red;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+      }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $(function () {
+        $(window).on("mousemove", function (e) {
+          var x = e.pageX;
+          var y = e.pageY; //변수는 가로 안에서 이루어져야함
+          $(".posX").text(x);
+          $(".posY").text(y);
+        });
+        $(window).on("scroll", function () {
+          var top = $(this).scrollTop();
+          var left = $(this).scrollLeft();
+          $(".top").text(top);
+          $(".left").text(left);
+        });
+        var ab = $(".box").offset().top;
+        var bc = $(".box").offset().left;
+        $(".offsetTop").text(ab);
+        $(".offsetLeft").text(bc);
+      });
+    </script>
+  </head>
+  <body>
+    <div>
+      <p>마우스의 X축 좌표:<span class="posX">0</span></p>
+      <p>마우스의 Y축 좌표:<span class="posY">0</span></p>
+      <p>scrollTop값:<span class="top">0</span></p>
+      <p>scrollLeft값:<span class="left">0</span></p>
+      <p>offsetTop값:<span class="offsetTop">0</span></p>
+      <p>offsetLeft값:<span class="offsetLeft">0</span></p>
+    </div>
+    <div class="box">im box</div>
+  </body>
+</html>

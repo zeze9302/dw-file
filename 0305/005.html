@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>side bar 만들기</title>
+    <link rel="stylesheet" href="jquery-ui.css" />
+    <!-- script 위에 link를 써야함 -->
+    <style>
+      #slider {
+        width: 500px;
+        margin: 100px auto;
+        border: 1px solid red;
+      }
+      .box {
+        width: 300px;
+        height: 50px;
+        border: 1px solid red;
+        margin: auto;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.14.1/jquery-ui.min.js"></script>
+    <script>
+      $(function () {
+        $("#slider").slider({
+          range: "",
+          min: 0,
+          max: 200,
+          value: 0,
+          orientation: "horizontal",
+          animation: "slow",
+          slide: function (event, ui) {
+            $("#value").val(ui.value);
+          },
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <p>슬라이드바를 만들자</p>
+    <p>슬라이드바가 움직일때 그 값을 받아오자</p>
+    <div id="slider"></div>
+    <div class="box">
+      <input type="text" id="value" />
+    </div>
+  </body>
+</html>

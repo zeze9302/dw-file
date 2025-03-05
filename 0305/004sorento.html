@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      ***좌표값을 이용한 영상 컨트롤하기//섹션을 원하는 사이즈로 변경//쏘렌토
+    </title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #111;
+        height: 100%;
+        border: 1px solid red;
+        position: fixed;
+        width: 100%;
+        color: #ccc;
+      }
+      section {
+        position: fixed;
+        z-index: 2;
+        width: 1280px; /* & */
+        height: 720px; /* & */
+        border: 1px solid #ccc;
+        top: 50%;
+        left: 50%;
+        overflow: hidden;
+        transform: translate(-50%, -50%); /* + */
+      }
+      img {
+        width: 100%;
+        height: auto;
+        position: absolute; /* 포지션+탑+레프트 백장이든 천장이든 겹쳐서 놓을 수 가 있음 */
+        top: 0; /* & */
+        left: 0;
+      }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $(function () {
+        var imgs = "";
+        for (var i = 0; i < 95; i++) {
+          imgs += '<img src="mp4/car' + i + '.jpg">';
+        }
+        $("section").html(imgs);
+
+        $("section").on("mousemove", function (a) {
+          //&
+          var x = a.offsetX; //&
+          var y = a.offsetY; //&
+          var win = $("section").width(); //&
+          var percent = Math.floor((x / win) * 94);
+          $(".posX").text(x);
+          $(".posY").text(y);
+          $(".percent").text(percent);
+
+          $("section img").hide();
+          $("section img").eq(percent).show();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <p>마우스의 X축 좌표: <span class="posX"></span></p>
+    <p>마우스의 Y축 좌표: <span class="posY"></span></p>
+    <p>전체 95 중 현재 얼마인가?: <span class="percent"></span></p>
+    <section>
+      <img src="mp4/car0.jpg" alt="영상이미지" />
+    </section>
+  </body>
+</html>

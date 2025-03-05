@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin:0; padding:0;}
+        body{background-color: #555;}
+        h1{text-align: center;}
+        .item{margin:5px; width:100px; height: 100px; background-color: white;
+            border-radius: 10px; float: left;}
+        .normal{width:210px; height: 210px;}
+        .big{width:210px; height: 430px;}
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script>
+        $(function(){
+            $('#container').masonry({
+                itemSelector: '.item', //적용할 아이템의 선택자는 클래스명으로 할것..
+                columnWidth:110,  //한칸당 기준사이즈(최소)
+                isAnimated:true
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>masonry로 창사이즈변화에 반응하게 만들기</h1>
+    <div id="container">
+        <div class="item small"></div>
+        <div class="item normal"></div>
+        <div class="item big"></div>
+        <div class="item small"></div>
+        <div class="item small"></div>
+        <div class="item small"></div>
+        <div class="item normal"></div>
+        <div class="item big"></div>
+        <div class="item small"></div>
+        <div class="item normal"></div>
+        <div class="item big"></div>
+        <div class="item small"></div>
+        <div class="item normal"></div>
+        <div class="item small"></div>
+        <div class="item small"></div>
+        <div class="item big"></div>
+        <div class="item small"></div>
+        <div class="item normal"></div>
+        <div class="item big"></div>
+        <div class="item small"></div>
+        <div class="item small"></div>
+    </div>
+</body>
+</html>

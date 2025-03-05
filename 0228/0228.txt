@@ -1,0 +1,60 @@
+sibilings 나를 제외한 모든것들 지목
+= 어떤 형제들을 지목
+= 그중 한개 또는 여러개 지목
+
+
+.eq(0); = 0번째 선택
+.gt(0); = 0번째를 제외한 형제들
+.siblings(); = 모든 형제들
+li : nth-child(1).siblings(); = 첫번째 li를 제외한 모든 형제
+.siblings('li : nth-child(3)'); = 형제중에서 3번째 li
+
+정책을 규정
+pc구간
+tablet : 1024이하
+mobile : 500이하
+
+
+국문은 폰트사이즈를 일반적으로
+11px~14px을 주로 사용한다
+만약에 10px 이하로 값을 주면 국문은 깨진다.
+영문은 7px이하면 깨지기 시작함..
+
+제이쿼리
+.hover();
+-2개의 이벤트를 가지고 있다.
+-mouseenter, mouesleave
+ 그래서 두개의 상황에 대한 명령이 필요하다.
+
+
+제이쿼리->plugins
+
+Tagged: slider
+slick
+view hompage
+about 밑에 파란링크 클릭
+
+plugin
+template
+f
+이미 잘 짜여진 코드를 무료로 배포..
+가져다 응용해서 사용가능
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

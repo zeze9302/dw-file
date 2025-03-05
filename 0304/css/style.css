@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ul {
+  list-style: none;
+}
+body {
+  font-family: Orbitron, sans-serif;
+  width: 100%;
+  height: 23000px;
+}
+
+h1 {
+  position: fixed;
+  top: 30px;
+  left: 30px;
+  font-size: 100px;
+}
+.navi {
+  position: fixed;
+  left: 100px;
+  top: 300px;
+  z-index: 10;
+}
+.navi li {
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+.navi li.on {
+  color: blue;
+  font-weight: bold;
+  font-size: 20px;
+}
+section {
+  width: 1200px;
+  height: 700px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  /* margin-left:-600px; margin-top:-350px; */
+  border: 3px solid red;
+  transform: translate(-50%, -50%);
+  perspective: 2500px;
+}
+article {
+  width: 1200px;
+  height: 700px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0.3;
+  background-color: blue;
+  font-size: 60px;
+  color: white;
+  z-index: 1;
+}
+article.on {
+  z-index: 2;
+  border: 3px solid red;
+  opacity: 1;
+  background-color: transparent;
+}
+article:nth-child(1) {
+  transform: translateZ(0px);
+}
+article:nth-child(2) {
+  transform: translateZ(-5000px);
+}
+article:nth-child(3) {
+  transform: translateZ(-10000px);
+}
+article:nth-child(4) {
+  transform: translateZ(-15000px);
+}
+article:nth-child(5) {
+  transform: translateZ(-20000px);
+}
+
+.b3-1,
+.b3-2 {
+  border: 1px solid red;
+  position: absolute;
+}
+.b3-1 {
+  right: 10px;
+  top: -10px;
+  height: 700px;
+}
+.b3-2 {
+  left: 500px;
+  bottom: 30px;
+}
