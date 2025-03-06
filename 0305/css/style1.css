@@ -73,7 +73,7 @@ article:nth-child(3) {
   transform: translateZ(-10000px);
 }
 article:nth-child(4) {
-  transform: translateZ(0px);
+  transform: translateZ(-15000px);
 }
 article:nth-child(5) {
   transform: translateZ(0px);

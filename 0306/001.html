@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>애플 따라하기..</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      h1 {
+        position: fixed; /* 스크롤이 안되게 */
+        top: 30px;
+        left: 30px;
+        z-index: 100;
+      }
+      #container {
+        width: 1000px;
+        height: 5000px;
+        margin: auto;
+        border: 1px solid #ccc;
+      }
+      section {
+        border: 2px solid #333;
+        height: 1000px; /* 각각의 섹션은 1000이다 */
+        margin-top: 100px;
+      }
+      #box2 { /* 2 */
+        height: 3300px;
+        position: relative;
+        border: 1px solid red;
+      }
+      #bpx2.on{position: fixed; border: 1px solid #000;}
+      #box2 div { /* 1 */
+        height: 1000px;
+        border: 1px solid blue;
+      }
+      .content2,
+      .content3 {
+        margin-top: 100px;
+      }
+      .content1 img{height:  1000px;}
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $(window).on('scroll',function(){
+                var ab = $(this).scrollTop();
+                $('h1').text(ab);
+                //스크롤하면 h1에 스크롤 내린 값을 할당->멈추고 싶은 곳의 스크롤 찾기
+                if(ab >= 1100 && ab < 2200){
+                  $('#box2').addClass('on');
+                }
+            });
+        });
+    </script>
+
+  </head>
+  <body>
+    <h1>0</h1>
+    <div id="container">
+      <section id="box1">box1</section>
+      <section id="box2">
+      <div class="content1"><img src="iPhone16.png" alt="아이폰" /></div>
+      <div class="content2">content2</div>
+      <div class="content3">content3</div>
+    </div>
+  </body>
+</html>

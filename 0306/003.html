@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>애플 따라하기..</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      h1 {
+        position: fixed;
+        top: 30px;
+        left: 30px;
+        z-index: 100;
+      }
+      #container {
+        width: 1000px;
+        height: 5000px;
+        margin: auto;
+        border: 1px solid #ccc;
+      }
+      section {
+        border: 2px solid #333;
+        height: 1000px;
+        margin-top: 100px;
+      }
+      #box2 {
+        height: 3300px;
+        position: relative;
+        border: 1px solid red;
+      }
+      #box2.on {
+        position: fixed;
+        border: 1px solid #000;
+        transform: translateX(-50%);
+        width: 1000px;
+        top: 100px;
+        left: 50%;
+      }
+      #box2.on2 {
+        position: absolute;
+        top: 2200px;
+        border: 1px solid red;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 1000px;
+      }
+      #box2 div {
+        height: 1000px;
+        border: 1px solid blue;
+      }
+      .content2,
+      .content3 {
+        margin-top: 100px;
+      }
+      .content1 img {
+        width: 100%;
+        position: absolute;
+      }
+      .content1 {
+        position: relative;
+        left: 0;
+        top: 0;
+      }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $(function () {
+        $(window).on("scroll", function () {
+          var ab = $(this).scrollTop();
+          $("h1").text(ab);
+
+          if (ab >= 1100 && ab < 2200) {
+            $("#box2").removeClass();
+            $("#box2").addClass("on");
+
+            var imgs = "";
+            for (var i = 0; i < 201; i++) {
+              imgs += '<img src="img/pic' + i + '.jpg">'; // 양쪽 3번 띄어쓰기, for문에서 오른쪽이 무한으로 추가됨
+            }
+            $(".content1").html(imgs);
+
+            var num = Math.floor((ab - 1200) / 5); // 1000/200
+            $(".content1 img").hide();
+            $(".content1 img").eq(num).show();
+          } else if (ab >= 2200) {
+            $("#box2").removeClass();
+            $("#box2").addClass("on2");
+          } else {
+            $("#box2").removeClass();
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>0</h1>
+    <div id="container">
+      <section id="box1">box1</section>
+
+      <section id="box2">
+        <div class="content1"><img src="img/pic0.jpg" alt="영상이미지" /></div>
+        <div class="content2">content2</div>
+        <div class="content3">content3</div>
+      </section>
+    </div>
+  </body>
+</html>
