@@ -1,0 +1,405 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>자동스크롤</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-size: 13px;
+        font-family: "Malgun Gothic", Arial, Helvetica, sans-serif;
+        background-color: white;
+        color: #1b1b1b;
+        height: 5500px;
+      }
+      ul {
+        list-style: none;
+      }
+      #wrap {
+        width: 1000px;
+        margin: auto;
+      }
+      h2 {
+        position: fixed;
+        color: red;
+        left: 30px;
+        top: 30px;
+      }
+      nav {
+        position: fixed;
+        right: 50px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      nav li {
+        margin: 10px 0;
+      }
+      nav li a {
+        display: block;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: gray;
+      }
+      nav li a.on {
+        background-color: black;
+      }
+      #content {
+        position: relative;
+      }
+      section {
+        padding: 100px 10px 0;
+        opacity: 0.1;
+      }
+      section.on {
+        opacity: 1;
+      }
+      section h1 {
+        font-size: 60px;
+        margin-bottom: 30px;
+      }
+      section#sec1 {
+        position: absolute;
+        top: 1100px;
+      }
+      section#sec2 {
+        position: absolute;
+        top: 2200px;
+      }
+      section#sec3 {
+        position: absolute;
+        top: 3300px;
+      }
+      section#sec4 {
+        position: absolute;
+        top: 4400px;
+      }
+      #phone {
+        position: absolute;
+        top: 1400px;
+        left: 5%;
+        z-index: 10;
+        transition: all 0.5s ease-in;
+      }
+      #phone.on {
+        top: 2500px;
+      }
+      #phone.on2 {
+        top: 3600px;
+      }
+      #phone.on3 {
+        top: 4700px;
+      }
+      #phone img {
+        width: 300px;
+        height: auto;
+      }
+      #iphone {
+        position: absolute;
+        top: 600px;
+        left: 50%;
+      }
+      #iphone img {
+        height: 450px;
+        background-color: #f0f0f0;
+      }
+    </style>
+    <script>
+      $(function () {
+        $(window).on("scroll", function () {
+          var abc = $(this).scrollTop();
+          $("h2").text(abc);
+
+          if (abc < 1960) {
+            $("#phone").removeClass();
+            $("#sec1").css("opacity", 1);
+            $("#sec2, #sec3, #sec4").css("opacity", 0.1);
+            $("body").css("background-color", "white");
+          } else if (abc >= 1960 && abc < 3060) {
+            $("#phone").removeClass();
+            $("#phone").addClass("on");
+            $("#sec2").css("opacity", 1);
+            $("#sec1, #sec3, #sec4").css("opacity", 0.1);
+            $("body").css("background-color", "#f0f0f0");
+          } else if (abc >= 3060 && abc < 4060) {
+            $("#phone").removeClass();
+            $("#phone").addClass("on2");
+            $("#sec3").css("opacity", 1);
+            $("#sec1, #sec2, #sec4").css("opacity", 0.1);
+            $("body").css("background-color", "#e2e2e2");
+          } else if (abc == 4547) {
+            $("body").css("background-color", "black");
+          } else {
+            $("#phone").removeClass();
+            $("#phone").addClass("on3");
+            $("#sec4").css("opacity", 1);
+            $("#sec1, #sec2, #sec3").css("opacity", 0.1);
+            $("body").css("background-color", "#dddddd");
+          }
+          console.log(abc);
+          if (abc < 1200) {
+            $("#iphone img").attr("src", "images/iphone0.png");
+          } else if (abc >= 1200 && abc < 1300) {
+            $("#iphone").css("top", 1400);
+          } else if (abc >= 1300 && abc < 4500) {
+            var startScroll = 1300; // 시작 스크롤 위치
+            var endScroll = 4500; // 끝 스크롤 위치
+            var totalItems = 70; // 이미지 개수
+
+            var range = endScroll - startScroll; // 전체 스크롤 범위
+            var interval = range / totalItems; // 각 이미지가 차지할 간격
+
+            // 현재 스크롤 위치에 해당하는 이미지 인덱스 계산
+            var index = Math.floor((abc - startScroll) / interval);
+            var hr = index + 1; // 이미지 번호 (1부터 70까지)
+            $("#iphone").css("top", abc + 200);
+            $("#iphone img").attr("src", "images/iphone" + hr + ".png");
+          } else {
+            $("#iphone img").attr("src", "images/iphone69.png");
+          }
+        });
+
+        /*아니면 menu1 menu2다 따로 설정하는 것도 가능*/
+        $("nav li").on("click", function (e) {
+          e.preventDefault(); // 기본 링크 이동 방지
+
+          var target = $(this).find("a").attr("href"); // 클릭한 메뉴의 href 값 (ex: #sec1)
+          var targetOffset = $(target).offset().top; // 해당 섹션의 위치
+
+          $("html, body").animate(
+            {
+              scrollTop: targetOffset, // 이동할 위치
+            },
+            1000,
+            "swing"
+          );
+
+          $("nav li a").removeClass("on");
+          $(this).find("a").addClass("on");
+
+          $("section").removeClass("on");
+          $(target).addClass("on");
+        });
+
+        $("#scrollToTop").click(function () {
+          $("html, body").animate({ scrollTop: 0 }, 1000);
+        });
+        $("#scrollToBottom").click(function () {
+          $("html, body").animate({ scrollTop: 4547 }, 1000);
+        });
+
+        /*
+            강제로 이벤트 적용방법
+            .trigger()사용
+            
+            강제로 scroll 이벤트를 발생시키기
+            $(window).trigger('scroll');
+            */
+      });
+    </script>
+    <style id="mttstyle">
+      #mttContainer {
+        left: 0 !important;
+        top: 0 !important;
+        width: 1000px !important;
+        margin: 0px !important;
+        margin-left: -500px !important;
+        position: fixed !important;
+        z-index: 100000200 !important;
+        background: none !important;
+        pointer-events: none !important;
+        display: inline-block !important;
+        visibility: visible !important;
+        white-space: pre-line;
+      }
+      .tippy-box[data-theme~="custom"],
+      .tippy-content * {
+        font-size: 18px !important;
+        text-align: center !important;
+        overflow-wrap: break-word !important;
+        color: #ffffffff !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+          "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+          "Helvetica Neue", sans-serif !important;
+        white-space: pre-line;
+      }
+      .tippy-box[data-theme~="custom"] {
+        max-width: 200px !important;
+        backdrop-filter: blur(6px) !important;
+        background-color: #00000080 !important;
+        border: 1px solid #ffffff00;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+          rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+      }
+      [data-tippy-root] {
+        display: inline-block !important;
+        visibility: visible !important;
+        position: absolute !important;
+      }
+      .tippy-box[data-theme~="custom"][data-placement^="top"]
+        > .tippy-arrow::before {
+        border-top-color: #00000080 !important;
+      }
+      .tippy-box[data-theme~="custom"][data-placement^="bottom"]
+        > .tippy-arrow::before {
+        border-bottom-color: #00000080 !important;
+      }
+      .tippy-box[data-theme~="custom"][data-placement^="left"]
+        > .tippy-arrow::before {
+        border-left-color: #00000080 !important;
+      }
+      .tippy-box[data-theme~="custom"][data-placement^="right"]
+        > .tippy-arrow::before {
+        border-right-color: #00000080 !important;
+      }
+      .mtt-highlight {
+        background-color: #21dc6d40 !important;
+        position: absolute !important;
+        z-index: 100000100 !important;
+        pointer-events: none !important;
+        display: inline !important;
+        border-radius: 3px !important;
+      }
+      .mtt-image {
+        width: 180px !important;
+        border-radius: 3px !important;
+      }
+      .ocr_text_div {
+        position: absolute;
+        opacity: 0.5;
+        color: transparent !important;
+        border: 2px solid CornflowerBlue;
+        background: none !important;
+        border-radius: 3px !important;
+      }
+    </style>
+    <style id="mttstyleSubtitle">
+      #ytp-caption-window-container .ytp-caption-segment {
+        cursor: text !important;
+        user-select: text !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+          "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+          "Helvetica Neue", sans-serif !important;
+      }
+      .caption-visual-line {
+        display: flex !important;
+        align-items: stretch !important;
+      }
+      .captions-text .caption-visual-line:first-of-type:after {
+        content: "⣿⣿";
+        border-radius: 3px !important;
+        color: white !important;
+        background: transparent !important;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+          rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+        display: inline-block;
+        vertical-align: top;
+        opacity: 0;
+        transition: opacity 0.7s ease-in-out;
+      }
+      .ytp-caption-segment {
+        color: white !important;
+        text-shadow: 1px 1px 2px black !important;
+        backdrop-filter: blur(3px) !important;
+        background: rgba(8, 8, 8, 0.1) !important;
+      }
+      .captions-text:hover .caption-visual-line:first-of-type:after {
+        opacity: 1;
+      }
+      .ytp-pause-overlay {
+        display: none !important;
+      }
+      .ytp-expand-pause-overlay .caption-window {
+        display: block !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <h2>0</h2>
+      <nav>
+        <ul>
+          <li><a href="#sec1" class="menu1"></a></li>
+          <li><a href="#sec2" class="menu2"></a></li>
+          <li><a href="#sec3" class="menu3"></a></li>
+          <li><a href="#sec4" class="menu4"></a></li>
+        </ul>
+      </nav>
+      <h3>Iphone</h3>
+      <video
+        src="xlarge.mp4"
+        style="position: absolute; top: 100px; width: 800px"
+        autoplay=""
+        muted=""
+        loop=""
+      ></video>
+      <div id="phone">
+        <a
+          href="https://www.apple.com/kr/iphone/?afid=p238%7CsPLeak76j-dc_mtid_209254jz40384_pcrid_733675383564_pgrid_168839739562_pexid__ptid_kwd-300640302452_&amp;cid=wwa-kr-kwgo-iphone-Core-Announce-iPhone-"
+          target="_blank"
+        >
+          <img src="images/phone1.png"
+        /></a>
+        <br />iPod, 휴대 전화, 인터넷 통신기기.<br />
+        이것들은 각각 3개의 제품이 아니라, 단 하나의 제품입니다.<br />
+        우리는 이 새로운 제품을 iPhone이라고 부릅니다.
+      </div>
+      <div id="content">
+        <div id="iphone">
+          <a
+            href="https://www.apple.com/kr/iphone/?afid=p238%7CsPLeak76j-dc_mtid_209254jz40384_pcrid_733675383564_pgrid_168839739562_pexid__ptid_kwd-300640302452_&amp;cid=wwa-kr-kwgo-iphone-Core-Announce-iPhone-"
+            target="_blank"
+          >
+            <img src="images/iphone0.png"
+          /></a>
+        </div>
+        <section id="sec1">
+          <header><h1>2007년 Iphone 1</h1></header>
+          <article>
+            <p>
+              A B C D E F G H I J K L M N O P Q R S T U V W X Y Z a b c d e f g
+              h i j k l m n o p q r s t u v w x y z
+            </p>
+          </article>
+        </section>
+        <section id="sec2">
+          <header><h1>Iphone</h1></header>
+          <article>
+            <p>
+              A B C D E F G H I J K L M N O P Q R S T U V W X Y Z a b c d e f g
+              h i j k l m n o p q r s t u v w x y z
+            </p>
+          </article>
+        </section>
+        <section id="sec3">
+          <header><h1>Iphone</h1></header>
+          <article>
+            <p>
+              A B C D E F G H I J K L M N O P Q R S T U V W X Y Z a b c d e f g
+              h i j k l m n o p q r s t u v w x y z
+            </p>
+          </article>
+        </section>
+        <section id="sec4">
+          <header><h1>2025년 Iphone 16e</h1></header>
+          <article>
+            <p>
+              A B C D E F G H I J K L M N O P Q R S T U V W X Y Z a b c d e f g
+              h i j k l m n o p q r s t u v w x y z
+            </p>
+          </article>
+        </section>
+      </div>
+    </div>
+    <button id="scrollToTop" style="position: fixed; top: 40%; right: 50px">
+      Top
+    </button>
+    <button id="scrollToBottom" style="position: fixed; top: 58%; right: 50px">
+      Bottom
+    </button>
+  </body>
+</html>

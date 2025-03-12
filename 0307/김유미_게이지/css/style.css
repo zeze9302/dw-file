@@ -1,0 +1,164 @@
+*{margin:0; padding:0; box-sizing: border-box;}
+
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+body{background-color: #000; width:100%; height: 5549px;color: #111;  font-family:'Nanum Gothic';}
+ul,li{list-style: none;}
+a:link {color: inherit;  text-decoration: none;}
+section{position:relative; z-index: 2; width:100%; height: 756px; 
+      overflow: hidden;}
+section img{width:1000px; height: 798px; position:absolute;left:50%; transform: translateX(-50%) }
+section p{color: #ccc;}
+#contents1 h1{position:fixed; top:50px; left:50px; color: red; z-index: 9; }
+#contents1 h2{position:fixed; top:100px; left:50px; color: red; z-index: 9; }
+
+
+/* menu */
+
+/* 메뉴란 */
+    nav{ position:fixed; z-index: 3;right: 0;width:0px; height: 50px; background-color: #ccc; transition: all 0.5s ease; overflow: hidden;}
+    nav.on{right: 0; width:100%;}
+    nav ul{width: 750px; height: 20px;;font-size: 20px; margin-left: 56%;  position: fixed; visibility:hidden}
+    nav ul.on{visibility: visible;}
+    ul li{float: left;}
+    nav a{color: #000; display: inline-block; width: 150px; box-sizing: border-box;
+        text-align: center; text-decoration: none; line-height: 50px; }
+    nav a:hover{color: #ccc; text-shadow: 1px 1px #000;}
+
+     /* 여기부터 햄버거 버튼 시작  */
+ #trriger{position:fixed; right: 34px; top: 8px; z-index: 10;}
+ .hamburger{top: 7px; right: 10px; position: absolute;  }
+ .line{background-color: #efefef; width: 30px; height: 5px; 
+ display: block; margin: 5px auto; transition: all 0.3s ease-in-out;}
+  .hamburger:hover{cursor: pointer;}
+
+.hamburger.active .line:nth-child(1){transform:  translatey(6px)rotate(45deg);}
+.hamburger.active .line:nth-child(2){transform: translatey(-4px)rotate(-45deg);}
+
+/* 인트로 */
+#contents2{width:100%; height: 756px; ;margin:auto; position:relative; top: 100px;}
+#contents2.on{position:fixed; top: 100px; left:50%; transform: translateX(-50%);}
+#contents2.on2{position:absolute; top:1200px; left:50%; transform: translateX(-50%);}
+
+
+
+/* About */
+
+#contents3{width: 100%; height: 1079px;background-color: #ccc; top: 2000px;;position: absolute; overflow: hidden;} 
+#contents3 .about{color: #111; text-align: center; font-size: 50px; margin-top: 100px;}
+/* About 이미지 설정 */
+#contents3 .myimg{width: 289px; height: 431px;  top: 50%; transform: translateY(-50%);  left: 350px; position: absolute;}
+#contents3 h3{font-size: 30px; float: left;}
+#contents3 p{text-align: left;font-size: 15px; margin-left: 31px; display: inline-block; margin-top: 3px;
+    line-height: 35px;}
+#contents3 p span{font-size: 15px;}
+
+/* About skill 설정 */
+.profile{width: 500px; position: relative; top: 149px; left: 710px; }
+.career{width: 500px; margin-top: 40px; position: relative;top: 149px; left: 710px;}
+.license{width: 500px; margin-top: 40px;position: relative;top: 149px; left: 710px;}
+.skill{width: 500px; position: absolute;top: 315px; right: 115px; display: block;}
+.skillgather{left: -51px;  width: 450px; height: 500px; position: absolute; text-align: right;}
+.skillbar{position: relative; margin-bottom: 15px;}
+.skillbar p{margin: 0; margin-right: 20px;}
+.skillbar-bar{width: 200px; height: 15px; background-color: #efefef; display: inline-block; border-radius: 10px;}
+.skillbar-bar div{width: 0px; left: 0px; transition: all 1s; border-radius: 10px; height: 15px; background-color: black;  }
+.html div.on{width: 80%;}
+.css div.on{width: 75%;}
+.jq div.on{width: 72%;}
+.ps div.on{width: 90%; }
+.lu div.on{width: 95%;}
+.ex div.on{width: 89%;}
+.skillbar-span{width: 40px;margin-left: 10px; font-weight: bold; position: absolute; top: 10px;right: -54px;}
+.skillbar-span div{margin-bottom: 32px;}
+
+
+/* WEB CONTENT*/
+
+#contents4{width: 100%; height: 1079px;top: 3070px;position: absolute; background-color: #d6d6d6; margin: auto;}
+#contents4 h2{font-size: 50px; text-align: center; margin-top: 100px;}
+
+
+
+#contents4 .slider {width: 60%;    margin: 100px auto;}
+#contents4 .slick-slide {  margin: 0px 20px;}
+#contents4 .slick-slide img {  width: 100%;  box-shadow: 4px -4px 19px -3px rgba(0,0,0,0.2);}
+#contents4 .slick-prev:before,#contents4 .slick-next:before {  color: black;}
+#contents4 .slick-slide {  transition: all ease-in-out .2s;  opacity: .2;}
+#contents4 .slick-active {  opacity: 1;}
+#contents4 .slick-current {  opacity: 1;}
+#contents4 .link{   width: 159px;  height: 40px;  border-radius: 10px;  border: 1px solid #ccc;
+  text-align: center;  line-height: 40px;  margin: 20px 192px; background-color: #ccc; color: #111;}
+#contents4 .link a{ color: #111;}
+#contents4 .link:hover{  border: 1px solid #111; background-color: #111;}
+#contents4 .link:hover a{  color: #ccc;}
+
+
+/*  GRAPHIC */
+#contents5{width: 100%; height: 900px; top: 4149px; position: absolute; background-color: #d4d4d4; margin: auto; }
+#contents5 h2{font-size: 50px; text-align: center; margin-top: 100px; }
+#contents5 img{background-size: cover;}
+
+#contents5 .box{width: 80%; height: 500px; margin: auto; margin-top: 20px;}
+#contents5 .boxup{width: 1240px;margin: auto;}
+
+/* box 1  */
+#contents5 .box1{width: 400px;height: 200px; float: left; overflow: hidden; position: relative; background-color: #111;}
+#contents5 .box1 img{background-size: cover; }
+#contents5 .box1 p{
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  transition: all 0.5s;
+  color: #fff;
+  text-shadow: 2px 2px 0px #000;
+  font-weight: 700;
+  z-index: 10;
+  position: absolute;
+  text-align: center;
+}
+#contents5 .bg{width: 100%; height: 100%;background-color: #111; opacity: 0; position: absolute; z-index: 3;}
+#contents5 .box1:hover img{transform: scale(1.1); transition: all 0.5s;color: white;filter:none;   background-color: #111;}
+#contents5 .box1:hover p{opacity: 1;}
+#contents5 .box1:hover .bg{opacity: 0.5;}
+
+/* box2 */
+#contents5 .box2{width: 400px;height: 200px; margin-left: 20px; float: left;overflow: hidden; position: relative;}
+#contents5 .box2 img{background-size: cover; }
+#contents5 .box2 p{
+  opacity: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  transition: all 0.5s;
+  color: #fff;
+  text-shadow: 2px 2px 0px #000;
+  font-weight: 700;
+  z-index: 10;
+  position: absolute;
+  text-align: center;
+}
+#contents5 .box2 .bg{width: 100%; height: 100%;background-color: #111; opacity: 0; position: absolute; z-index: 3;}
+#contents5 .box2:hover img{transform: scale(1.1); transition: all 0.5s;color: white;filter:none;   background-color: #111;}
+#contents5 .box2:hover p{opacity: 1;}
+#contents5 .box2:hover .bg{opacity: 0.5;}
+
+/* 나머지 박스 수정중  */
+
+#contents5 .box3{width: 400px;height: 200px; border: 1px solid #000; margin-left: 20px; float: left;}
+
+#contents5 .boxdown{width: 1240px;;margin: auto;  position: relative; top: 60px;}
+
+#contents5 .box4{width: 400px;height: 200px; border: 1px solid #000;float: left;}
+#contents5 .box5{width: 400px;height: 200px; border: 1px solid #000; margin-left: 20px; float: left;}
+#contents5 .box6{width: 400px;height: 200px; border: 1px solid #000; margin-left: 20px; float: left;}
+
+/* Putter*/
+#Putter{width: 100%; height: 500px; background-color: rgb(228, 228, 228); position: absolute; top: 5049px ;}
+#Putter h2{color: #111; font-size: 50px; text-align: center; position: relative; margin-top: 100px;}
+#Putter p{color: #111; font-size: 12px; text-align: center; position: relative;    margin-top: 265px;}
+
+

@@ -1,0 +1,15 @@
+var imgs = "";
+            for (var i = 0; i < 201; i++) {
+              imgs += '<img src="img/pic' + i + '.jpg">';
+            }
+            $(".content1").html(imgs);
+변수를 따로 떼놓고 사용해도 된다.
+
+제페토
+내 아바타 만들기
+
+제이쿼리
+&(window) ->화면 창 전체
+
+freepik
+https://www.pngplay.com/image/194878

@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+        font-family: 'WAGURITTF';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2403@1.0/WAGURITTF.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;}
+
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+
+        body{background-color: #efefef; position: fixed; width: 100%; height: 100%; color: #333; font-size: 12px; font-family: 'WAGURITTF'; background: url(nintendoimages/ninbg2.png) center center no-repeat;background-attachment: fixed;}
+
+        #top{position: relative; width: 100%; height: 100px ;/* border: 1px solid red;  */overflow: hidden;}
+
+        #settings{position: absolute; top: 200px; left: 50px; width: 500px; height: 500px;}
+
+        .logo{position: absolute;top: 15px;left: 30px;}
+
+        #top>ul{list-style: none; width: 400px; height: 50px; right: 100px; top: 46px; position: absolute;}
+
+        #top>ul li{float: left;width: 100px; height: 50px; color: #ccc; cursor: pointer; transition: all 0.5s ease;}
+
+        #top>ul li:hover{color: red;}
+
+        #menu{width: 1000px; height: 50px; margin: auto;/*  border: 1px solid red; */ top: 200px;position: absolute; left: 460px; z-index: 100;}
+
+        #menu>ul{list-style: none; color: #efefef; text-align: center;}
+
+        #menu li{width: 180px; height: 30px; float: left; margin: 0 35px; line-height: 30px; font-size: 16px;/*  border: 1px solid red; */}
+
+        #menu li a{text-decoration: none; color: #efefef; transition: all 0.5s ease;}
+
+        .line1{width: 4px; height: 22px; background-color: #efadef; /* border: 1px solid red;  */position: absolute; left: 500px; top: 203px; transition: all 0.5s ease;}
+
+        .line1.on{width: 170px; border-radius: 5px;}
+        
+        .line2{width: 4px; height: 22px; background-color: #ff3333; /* border: 1px solid red;  */position: absolute; left: 785px; top: 203px; transition: all 0.5s ease;}
+
+        .line2.on{width: 100px; border-radius: 5px;}
+        
+        .line3{width: 4px; height: 22px; background-color: greenyellow; /* border: 1px solid red;  */position: absolute; left: 1010px; top: 203px; transition: all 0.5s ease;}
+
+        .line3.on{width: 150px; border-radius: 5px;}
+        
+        .line4{width: 4px; height: 22px; background-color: yellow; /* border: 1px solid red;  */position: absolute; left: 1300px; top: 203px; transition: all 0.5s ease;}
+
+        .line4.on{width: 70px; border-radius: 5px;}
+
+        #btn1:hover{color: #efadef; }
+
+        #btn1.on{color: #333 }
+        
+        #btn2:hover{color: #ff3333; }
+
+        #btn2.on{color: #333 }
+        
+        #btn3:hover{color: greenyellow; }
+
+        #btn3.on{color: #333 }
+        
+        #btn4:hover{color: yellow; }
+
+        #btn4.on{color: #333 }
+
+        #bg{position: absolute ;width: 100%; height: 750px; background-color: #ccc; opacity: 0.3; top: 100px;}
+
+        #sub1{color: #efefef; width: 1000px; height: auto; position: absolute; top: 750px; left: 480px; font-size: 20px; opacity: 0; visibility: hidden; transition: all 1.5s ease; z-index: 50000;}
+
+        #sub1.on{opacity: 1; visibility: visible;}
+
+        #sub2{color: #efefef; width: 1000px; height: auto; position: absolute; top: 750px; left: 570px; font-size: 20px; opacity: 0; visibility: hidden; transition: all 1.5s ease; z-index: 50000}
+
+        #sub2.on{opacity: 1; visibility: visible;}
+
+        #sub3{color: #efefef; width: 1000px; height: auto; position: absolute; top: 750px; left: 550px; font-size: 20px; opacity: 0; visibility: hidden; transition: all 1.5s ease; z-index: 50000}
+
+        #sub3.on{opacity: 1; visibility: visible;}
+
+        #sub4{color: #efefef; width: 1000px; height: auto; position: absolute; top: 750px; left: 480px; font-size: 20px; opacity: 0; visibility: hidden; transition: all 1.5s ease; z-index: 50000}
+
+        #sub4.on{opacity: 1; visibility: visible;}
+
+        .line5{position: absolute; width: 5px; height: 750px; left: 0; top: 100px; background-color: #efadef; opacity: 0; visibility: hidden; transition: all 1.5s ease;}    
+        
+        .line5.on{opacity: 1; visibility: visible;}    
+
+        .line6{position: absolute; width: 5px; height: 750px; right: 0; top: 100px; background-color: #efadef; opacity: 0; visibility: hidden; transition: all 1.5s ease;}    
+        
+        .line6.on{opacity: 1; visibility: visible;}    
+
+        .line7{position: absolute; width: 5px; height: 750px; left: 0; top: 100px; background-color: #ff3333; opacity: 0; visibility: hidden; transition: all 1.5s ease;}
+        
+        .line7.on{opacity: 1; visibility: visible;}
+        
+        .line8{position: absolute; width: 5px; height: 750px; right: 0; top: 100px; background-color: #ff3333; opacity: 0; visibility: hidden; transition: all 1.5s ease;}   
+        
+        .line8.on{opacity: 1; visibility: visible;}    
+
+        .line9{position: absolute; width: 5px; height: 750px; left: 0; top: 100px; background-color: greenyellow; opacity: 0; visibility: hidden; transition: all 1.5s ease;}    
+        
+        .line9.on{opacity: 1; visibility: visible;}    
+
+        .line10{position: absolute; width: 5px; height: 750px; right: 0; top: 100px; background-color: greenyellow; opacity: 0; visibility: hidden; transition: all 1.5s ease;}    
+        
+        .line10.on{opacity: 1; visibility: visible;}    
+
+        .line11{position: absolute; width: 5px; height: 750px; left: 0; top: 100px; background-color: yellow; opacity: 0; visibility: hidden; transition: all 1.5s ease;}   
+        
+        .line11.on{opacity: 1; visibility: visible;}    
+
+        .line12{position: absolute; width: 5px; height: 750px; right: 0; top: 100px; background-color: yellow; opacity: 0; visibility: hidden; transition: all 1.5s ease; z-index: 100000;}   
+        
+        .line12.on{opacity: 1; visibility: visible;}
+
+        section{position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); overflow: hidden; visibility: hidden; opacity: 0; transition: all 1s ease; /* border: 1px solid red; ; */ z-index: 51;}
+
+        section img{width: 100%; height: auto; position: absolute; top: 0; left: 0; vertical-align: top;}
+
+        #box1{width: 600px; height: 338px; /* border: 1px solid red; */}
+        
+        #box1.on{opacity: 1; visibility: visible;}
+        
+        #box2{width: 600px; height: 338px;}
+        
+        #box2.on{opacity: 1; visibility: visible;}
+        
+        #box3{width: 600px; height: 338px;}
+        
+        #box3.on{opacity: 1; visibility: visible;}
+        
+        #box4{width: 600px; height: 338px;}
+        
+        #box4.on{opacity: 1; visibility: visible;}
+
+        .switch{position: absolute; left: 50%; top: 50%;transform: translate(-50%, -50%); width: 1000px; height: 426px; z-index: 50;}
+
+        #images{width: 100%;height: auto;/* border: 1px solid red; */ position: fixed; z-index: 49;}
+
+        .k1{width: 500px; height: 341px; position: absolute; right: 50px; top: 450px; visibility: hidden; opacity: 0; transition: all 1.5s ease; z-index: 2;}
+
+        .k1.on{opacity: 1; visibility: visible;}
+
+        .k2{position: absolute; left: 50px; top: 200px; opacity: 0; visibility: hidden; transition: all 1.5s ease; width: 250px; height: 303px;}
+
+        .k2.on{visibility: visible; opacity: 1;}
+
+        .k3{position: absolute; width: 400px; height: 400px; top: 100px;right: 100px; z-index: 1; opacity: 0; visibility: hidden; transition: all 1.5s ease;}
+
+        .k3.on{opacity: 1; visibility: visible;}
+        
+        .k4{position: absolute; width: 500px; height: 500px; top: 250px;left: 80px; z-index: 1; opacity: 0; visibility: hidden; transition: all 1.5s ease;}
+
+        .k4.on{opacity: 1; visibility: visible;}
+
+        .m1{position: absolute; width: 300px; height: 373px; left: 200px; top: 400px; visibility: hidden; opacity: 0;;transition: all 1.5s ease;z-index: 1000;}
+
+        .m1.on{visibility: visible; opacity: 1;}
+
+        .m2{position: absolute; width: 100px; height: 123px; left: 340px; top: 300px; visibility: hidden; opacity: 0;transition: all 1.5s ease;z-index: 40;}
+
+        .m2.on{opacity: 1; visibility: visible;}
+
+        .m3{position: absolute; width: 400px; height: 612px; right: 70px; top:  200px; visibility: hidden; opacity: 0;transition: all 1.5s ease;}
+
+        .m3.on{visibility: visible; opacity: 1;}
+        
+        .m4{position: absolute; width: 300px; height: 381px; left: 70px; top:  200px; visibility: hidden; opacity: 0;transition: all 1.5s ease; z-index: 49;}
+
+        .m4.on{visibility: visible; opacity: 1;}
+
+        .f1{position: absolute; left: 150px; top: 250px; visibility: hidden; opacity: 0; transition: all 1.5s ease;}
+
+        .f1.on{opacity: 1; visibility: visible;}
+
+        .f2{position: absolute; right: 150px; top: 300px; visibility: hidden; opacity: 0; transition: all 1.5s ease;} 
+
+        .f2.on{opacity: 1; visibility: visible;}
+
+        .f3{position: absolute; right: 100px; top: 370px; width: 200px; height: 315px; opacity: 0; visibility: hidden; transition: all 1.5s ease; z-index: 0;}
+
+        .f3.on{opacity: 1; visibility: visible;}
+
+        .r1{position: absolute; left: 50px; top: 150px; width: 700px; height: 689px; opacity: 0; visibility: hidden; transition: all 1.5s ease;}
+
+        .r1.on{opacity: 1; visibility: visible;}
+
+        .r2{position: absolute; right: -100px; top: 150px; width: 600px; height: 670px; opacity: 0; visibility: hidden; transition: all 1.5s ease;}
+
+        .r2.on{opacity: 1; visibility: visible;}
+
+        
+
+        
+            
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            //커비//
+            var imgs = '';
+            for(var k = 0; k<226; k++){
+                imgs += '<img src="nin1/Kirby' +   k   + '.jpg">'
+            };
+        
+            $('section#box1').html(imgs);
+
+            $('section#box1').on('mousemove', function(e){
+                var x = e.offsetX;
+                var y = e.offsetY;
+                var win = $('section#box1').width();
+                var percent = Math.floor((x/win)*225);
+
+                $('.posX').text(x);
+                $('.posY').text(y);
+                $('.percent').text(percent);
+
+                $('section#box1 img').hide();
+                $('section#box1 img').eq(percent).show();
+
+            });
+            
+            //마리오//
+            var imgs2 = '';
+            for(var m = 0; m<178; m++){
+                imgs2 += '<img src="nin2/mario'+  m  +'.jpg">'
+            };
+        
+            $('section#box2').html(imgs2);
+
+            $('section#box2').on('mousemove', function(f){
+                var x2 = f.offsetX;
+                var y2 = f.offsetY;
+                var win2 = $('section#box2').width();
+                var percent2 = Math.floor((x2/win2)*177);
+
+                $('.posX').text(x2);
+                $('.posY').text(y2);
+                $('.percent').text(percent2);
+
+                $('section#box2 img').hide();
+                $('section#box2 img').eq(percent2).show();
+
+            });
+           
+            //동물의 숲//
+            var imgs3 = '';
+            for(var a = 0; a<180; a++){
+                imgs3 += '<img src="nin3/forest'  +  a  +  '.jpg">'
+            };
+        
+            $('section#box3').html(imgs3);
+
+            $('section#box3').on('mousemove', function(g){
+                var x3 = g.offsetX;
+                var y3 = g.offsetY;
+                var win3 = $('section#box3').width();
+                var percent3 = Math.floor((x3/win3)*179);
+
+                $('.posX').text(x3);
+                $('.posY').text(y3);
+                $('.percent').text(percent3);
+
+                $('section#box3 img').hide();
+                $('section#box3 img').eq(percent3).show();
+
+            });
+            
+            //링피트//
+            var imgs4 = '';
+            for(var z = 0; z<179; z++){
+                imgs4 += '<img src="nin4/ringfit'  +  z  +  '.jpg">'
+            };
+        
+            $('section#box4').html(imgs4);
+
+            $('section#box4').on('mousemove', function(h){
+                var x4 = h.offsetX;
+                var y4 = h.offsetY;
+                var win4 = $('section#box4').width();
+                var percent4 = Math.floor((x4/win4)*178);
+
+                $('.posX').text(x4);
+                $('.posY').text(y4);
+                $('.percent').text(percent4);
+
+                $('section#box4 img').hide();
+                $('section#box4 img').eq(percent4).show();
+
+            });
+        
+
+            //웹페이지 열었을때 설정//
+            
+            $('#box1').addClass('on');
+            $('.k1').addClass('on');
+            $('.k2').addClass('on');
+            $('.k3').addClass('on');
+            $('.k4').addClass('on');
+            $('#sub1').addClass('on');
+            $('.line1').addClass('on');
+            $('#btn1').addClass('on');
+            $('.line5').addClass('on');
+            $('.line6').addClass('on');
+
+            //커비 버튼액션//
+
+            $('#btn1').click(function(){
+                $('section').removeClass('on');
+                $('section#box1').addClass('on');
+                $('#btn1').addClass('on');
+                $('#btn2').removeClass('on');
+                $('#btn3').removeClass('on');
+                $('#btn4').removeClass('on');
+                $('.k1').removeClass('on');
+                $('.k1').addClass('on');
+                $('.k2').removeClass('on');
+                $('.k2').addClass('on');
+                $('.k3').removeClass('on');
+                $('.k3').addClass('on');
+                $('.k4').addClass('on');
+                $('.m1').removeClass('on');
+                $('.m2').removeClass('on');
+                $('.m3').removeClass('on');
+                $('.m4').removeClass('on');
+                $('.f1').removeClass('on');
+                $('.f2').removeClass('on');
+                $('.f3').removeClass('on');
+                $('.r1').removeClass('on');
+                $('.r2').removeClass('on');
+                $('#sub1').addClass('on');
+                $('#sub2').removeClass('on');
+                $('#sub3').removeClass('on');
+                $('#sub4').removeClass('on');
+                $('.line1').addClass('on');
+                $('.line2').removeClass('on');
+                $('.line3').removeClass('on');
+                $('.line4').removeClass('on');
+                $('.line5').addClass('on');
+                $('.line6').addClass('on');
+                $('.line7').removeClass('on');
+                $('.line8').removeClass('on');
+                $('.line9').removeClass('on');
+                $('.line10').removeClass('on');
+                $('.line11').removeClass('on');
+                $('.line12').removeClass('on');
+                
+            });
+            
+            //마리오 버튼액션//
+            
+            $('#btn2').click(function(){
+                $('section').removeClass('on');
+                $('section#box2').addClass('on');
+                $('#btn1').removeClass('on');
+                $('#btn2').addClass('on');
+                $('#btn3').removeClass('on');
+                $('#btn4').removeClass('on');
+                $('.m1').removeClass('on');
+                $('.m1').addClass('on');
+                $('.m2').addClass('on');
+                $('.m3').removeClass('on');
+                $('.m3').addClass('on');
+                $('.m4').addClass('on');
+                $('.k1').removeClass('on');
+                $('.k2').removeClass('on');
+                $('.k3').removeClass('on');
+                $('.k4').removeClass('on');
+                $('.f1').removeClass('on');
+                $('.f2').removeClass('on');
+                $('.f3').removeClass('on');
+                $('.r1').removeClass('on');
+                $('.r2').removeClass('on');
+                $('#sub1').removeClass('on');
+                $('#sub2').addClass('on');
+                $('#sub3').removeClass('on');
+                $('#sub4').removeClass('on');
+                $('.line1').removeClass('on');
+                $('.line2').addClass('on');
+                $('.line3').removeClass('on');
+                $('.line4').removeClass('on');
+                $('.line5').removeClass('on');
+                $('.line6').removeClass('on');
+                $('.line7').addClass('on');
+                $('.line8').addClass('on');
+                $('.line9').removeClass('on');
+                $('.line10').removeClass('on');
+                $('.line11').removeClass('on');
+                $('.line12').removeClass('on');
+            });
+
+            //동숲 버튼액션//
+            
+            $('#btn3').click(function(){
+                $('section').removeClass('on');
+                $('section#box3').addClass('on');
+                $('#btn1').removeClass('on');
+                $('#btn2').removeClass('on');
+                $('#btn3').addClass('on');
+                $('#btn4').removeClass('on');
+                $('.m1').removeClass('on');
+                $('.m1').removeClass('on');
+                $('.m2').removeClass('on');
+                $('.m3').removeClass('on');
+                $('.m3').removeClass('on');
+                $('.m4').removeClass('on');
+                $('.k1').removeClass('on');
+                $('.k2').removeClass('on');
+                $('.k3').removeClass('on');
+                $('.k4').removeClass('on');
+                $('.f1').addClass('on');
+                $('.f2').addClass('on');
+                $('.f3').addClass('on');
+                $('.r1').removeClass('on');
+                $('.r2').removeClass('on');
+                $('#sub1').removeClass('on');
+                $('#sub2').removeClass('on');
+                $('#sub3').addClass('on');
+                $('#sub4').removeClass('on');
+                $('.line1').removeClass('on');
+                $('.line2').removeClass('on');
+                $('.line3').addClass('on');
+                $('.line4').removeClass('on');
+                $('.line5').removeClass('on');
+                $('.line6').removeClass('on');
+                $('.line7').removeClass('on');
+                $('.line8').removeClass('on');
+                $('.line9').addClass('on');
+                $('.line10').addClass('on');
+                $('.line11').removeClass('on');
+                $('.line12').removeClass('on');
+            });
+            
+            //링피트 버튼액션//
+
+            $('#btn4').click(function(){
+                $('section').removeClass('on');
+                $('section#box4').addClass('on');
+                $('#btn1').removeClass('on');
+                $('#btn2').removeClass('on');
+                $('#btn3').removeClass('on');
+                $('#btn4').addClass('on');
+                $('.m1').removeClass('on');
+                $('.m1').removeClass('on');
+                $('.m2').removeClass('on');
+                $('.m3').removeClass('on');
+                $('.m3').removeClass('on');
+                $('.m4').removeClass('on');
+                $('.k1').removeClass('on');
+                $('.k2').removeClass('on');
+                $('.k3').removeClass('on');
+                $('.k4').removeClass('on');
+                $('.f1').removeClass('on');
+                $('.f2').removeClass('on');
+                $('.f3').removeClass('on');
+                $('.r1').addClass('on');
+                $('.r2').addClass('on');
+                $('#sub1').removeClass('on');
+                $('#sub2').removeClass('on');
+                $('#sub3').removeClass('on');
+                $('#sub4').addClass('on');
+                $('.line1').removeClass('on');
+                $('.line2').removeClass('on');
+                $('.line3').removeClass('on');
+                $('.line4').addClass('on');
+                $('.line5').removeClass('on');
+                $('.line6').removeClass('on');
+                $('.line7').removeClass('on');
+                $('.line8').removeClass('on');
+                $('.line9').removeClass('on');
+                $('.line10').removeClass('on');
+                $('.line11').addClass('on');
+                $('.line12').addClass('on');
+            });
+
+            
+
+            $('body').on('mousemove', function(m){
+                var moveX = m.pageX/25;
+                var moveY = m.pageY/25;
+
+                $('.m1').css({'left':200-moveX, 'top': 400+moveY });
+                $('.m2').css({'left':340+moveX, 'top': 300-moveY });
+                $('.m3').css({'right' : 50+moveX, 'top' : 200-moveY});
+                $('.m4').css({'left' : 70-moveX, 'top' : 200-moveY});
+                $('.k1').css({'right' : 50+moveX, 'top' : 450-moveY});
+                $('.k2').css({'left' : 50+moveX, 'top' : 250-moveY});
+                $('.k3').css({'right' : 100-moveX, 'top' :100+moveY});
+                $('.k4').css({'left' : 80-moveX, 'top' :250+moveY});
+                $('.f1').css({'left' : 150+moveX, 'top' : 250+moveY});
+                $('.f2').css({'right' : 200+moveX, 'top' : 300-moveY});
+                $('.f3').css({'right' : 100-moveX, 'top' : 370+moveY});
+                $('.r1').css({'left' : 50+moveX, 'top' : 150+moveY});
+                $('.r2').css({'right' : -100+moveX, 'top' : 150-moveY});
+            });
+
+           
+        });
+
+    </script>
+</head>
+<body>
+    <!-- <div id="settings">
+        <p>마우스의 x축 좌표 : <span class="posX">0</span></p>
+        <p>마우스의 y축 좌표 : <span class="posY">0</span></p>
+        <p>전체컷중 몇번째인지 표시 : <span class="percent">0</span></p>
+    </div> -->
+    <div id="top">
+        <img src="nintendoimages/nintendologo3.png" alt="닌텐도 스위치 로고" class="logo">
+        <ul>
+            <li>상품소개</li>
+            <li>News</li>
+            <li>소프트웨어</li>
+            <li>고객지원</li>
+        </ul>
+    </div>    
+        
+    <div id="menu">
+        <ul>
+            <li><a href="#" id="btn1">별의 커비 디스커버리</a></li>
+            <li><a href="#" id="btn2">슈퍼마리오</a></li>
+            <li><a href="#" id="btn3">모여봐요 동물의 숲</a></li>
+            <li><a href="#" id="btn4">링피트</a></li>
+        </ul>
+    </div>
+
+    <p class="line1"></p>
+    <p class="line2"></p>
+    <p class="line3"></p>
+    <p class="line4"></p>
+    <p class="line5"></p>
+    <p class="line6"></p>
+    <p class="line7"></p>
+    <p class="line8"></p>
+    <p class="line9"></p>
+    <p class="line10"></p>
+    <p class="line11"></p>
+    <p class="line12"></p>
+
+    <div id="bg"></div>
+
+    <div id="sub1">
+        <p>별의 커비 시리즈 최초의 3D 액션게임으로, 한때 문명이 존재했던 세계에서 펼쳐지는 커비의 모험을 경험해보세요!</p>
+    </div>
+    <div id="sub2">
+        <p>마왕 쿠파에게 납치된 피치공주를 구출하라! 과연 마리오 형제는 피치공주를 구할 수 있을까요?</p>
+    </div>
+    <div id="sub3">
+        <p>현실과 동일하게 흐르는 시간속에서 펼쳐지는 여러분들만의 생활, 당신은 어떤 생활을 꿈꾸고 계신가요?</p>
+    </div>
+    <div id="sub4">
+        <p>링콘을 잡고 게임하면서 운동까지! 당신을 위해 준비된 60종류의 피트니스 코스로 건강과 즐거움을 동시에 얻으세요!</p>
+    </div>
+
+    <section id="box1">
+        <img src="nintendo1/Kirby0.jpg" alt="커비 티저영상 이미지">
+    </section>
+    <section id="box2">
+        <img src="nintendo2/mario0.jpg" alt="슈퍼마리오 티저영상 이미지">
+    </section>
+    <section id="box3">
+        <img src="nintendo3/forest0.jpg" alt="동물의 숲 티저영상 이미지">
+    </section>
+    <section id="box4">
+        <img src="nin4/ringfit0.jpg" alt="링피트 티저영상 이미지">
+    </section>
+
+    <img src="nintendoimages/switch.png" alt="스위치" class="switch">
+
+    
+    
+        <img src="nintendoimages/mario.png" class="m1">
+        <img src="nintendoimages/mario2.png" class="m2">
+        <img src="nintendoimages/mario3.png" class="m3">
+        <img src="nintendoimages/mario4.png" class="m4">
+        <img src="nintendoimages/kurby.png" class="k1">
+        <img src="nintendoimages/kurby2.png" class="k2">
+        <img src="nintendoimages/kurby3.png" class="k3">
+        <img src="nintendoimages/kurby4.png" class="k4">
+        <img src="nintendoimages/forest1.png" class="f1">
+        <img src="nintendoimages/forest2.png" class="f2">
+        <img src="nintendoimages/forest3.png" class="f3">
+        <img src="nintendoimages/ring1.png" class="r1">
+        <img src="nintendoimages/ring2.png" class="r2">
+</body>
+</html>

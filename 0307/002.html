@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>자동 스크롤..</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-size: 13px;
+        font-family: "Malgun Gothic", Arial, sans-serif;
+        background-color: #222;
+        color: #ccc;
+      }
+      ul {
+        list-style: none;
+      }
+      #wrap {
+        width: 1000px;
+        margin: auto;
+      }
+      h2 {
+        position: fixed; /* 하늘로 떠서 고정 */
+        top: 30px;
+        left: 30px;
+        color: red;
+      }
+      nav {
+        position: fixed; /* 떠서 오른쪽에 있어야함 */
+        right: 50px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      li {
+        margin: 10px 0; /* 위아래 10px 좌우 0 */
+      }
+      li a {
+        display: block;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%; /* 50%만큼 둥글게 ->원이 된다 */
+        background-color: #ccc;
+      }
+      li a.on {
+        background-color: yellow; /* on 불이 들어오면 노랑색이 되어라 */
+      }
+
+      #content {
+        position: relative;
+      }
+      section {
+        padding: 100px 10px 0; /* 시계방향 위부터 시작 */
+        border: 1px solid red;
+        position: absolute;
+        /* width: 1000px; */
+        opacity: 0.1;
+        transition: all 0.5s ease-in; /* 변하기 전 단계에 줘야함..애니메이션처럼 */
+      }
+      section h1 {
+        font-size: 60px;
+        margin-bottom: 30px;
+      }
+      section#sec1 {
+        top: 0;
+      }
+      section#sec2 {
+        top: 1100px;
+      }
+      section#sec3 {
+        top: 2200px;
+      }
+      section#sec4 {
+        top: 3300px;
+        height: 1500px;
+      }
+      #sec1.on {
+        opacity: 1;
+      }
+      #sec2.on {
+        opacity: 1;
+      }
+      #sec3.on {
+        opacity: 1;
+      }
+      #sec4.on {
+        opacity: 1;
+      }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $(function () {
+        $(window).on("scroll", function () {
+          var abc = $(window).scrollTop();
+          $("h2").text(abc);
+        });
+        //휠로 움직였을때 : 새로고침하거나 컴퓨터가 안될때 1번으로 가라
+        $("html,body").animate({ scrollTop: 0 }, 50);
+
+        //버튼 클릭을 통한 이동시 버튼의 불 켜주기@@@
+        //.menu1을 복사 후 숫자만 변경
+        $(".menu1").click(function () {
+          $("html,body").animate({ scrollTop: 0 }, 1000, "swing");
+          $("li a").removeClass("on");
+          $(this).addClass("on"); // this는 menu1이다
+        });
+
+        $(".menu2").click(function () {
+          $("html,body").animate({ scrollTop: 1100 }, 1000, "swing");
+          $("li a").removeClass("on");
+          $(this).addClass("on");
+        });
+        $(".menu3").click(function () {
+          $("html,body").animate({ scrollTop: 2200 }, 1000, "swing");
+          $("li a").removeClass("on");
+          $(this).addClass("on");
+        });
+        $(".menu4").click(function () {
+          $("html,body").animate({ scrollTop: 3300 }, 1000, "swing");
+          $("li a").removeClass("on");
+          $(this).addClass("on");
+        });
+
+        //스크롤 또는 휠을 통한 이동시 버튼의 불 켜주기@@@
+        $(window).on("scroll", function () {
+          /* 1100이하일때(작거나 같을때) */
+          if ($(window).scrollTop() <= 1099) {
+            $("li a").removeClass("on");
+            $(".menu1").addClass("on");
+
+            $("section").removeClass("on"); //트렌지션 주기 위해 추가, class와 id on 중복 가능
+            $("#sec1").addClass("on"); //++
+          } else if ($(window).scrollTop() <= 2199) {
+            $("li a").removeClass("on");
+            $(".menu2").addClass("on");
+
+            $("section").removeClass("on");
+            $("#sec2").addClass("on");
+          } else if ($(window).scrollTop() <= 3299) {
+            $("li a").removeClass("on");
+            $(".menu3").addClass("on");
+
+            $("section").removeClass("on");
+            $("#sec3").addClass("on");
+          } else if ($(window).scrollTop() >= 3300) {
+            $("li a").removeClass("on");
+            $(".menu4").addClass("on");
+
+            $("section").removeClass("on");
+            $("#sec4").addClass("on");
+          }
+        });
+        //강제로 이벤트를 적용하는 방법(..들어가자마자 f5를 눌렀을때 불이 꺼짐)
+        $(window).trigger("scroll");
+      });
+    </script>
+  </head>
+  <body>
+    <div id="wrap">
+      <h2>0</h2>
+      <!-- h2는 게이지 -->
+      <nav>
+        <ul>
+          <li><a href="#sec1" class="menu1"></a></li>
+          <!-- id와 클래스를 둘 다 가지고 있다 ....class='menu1' 안에 on을 줘야 노랑색이 보임,,,제이쿼리.menu할때 on을 삭제-->
+          <li><a href="#sec2" class="menu2"></a></li>
+          <li><a href="#sec3" class="menu3"></a></li>
+          <li><a href="#sec4" class="menu4"></a></li>
+        </ul>
+      </nav>
+      <div id="content">
+        <section id="sec1">
+          <!-- 몇장 -->
+          <header><h1>01.ABOUT ME</h1></header>
+          <article>
+            <!-- 몇절 -->
+            <p>
+              우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....
+            </p>
+          </article>
+        </section>
+        <!--  -->
+        <section id="sec2">
+          <header><h1>02.PORTFOLIO</h1></header>
+          <article>
+            <p>
+              우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....
+            </p>
+          </article>
+        </section>
+        <section id="sec3">
+          <header><h1>03.WORK STORY</h1></header>
+          <article>
+            <p>
+              우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....
+            </p>
+          </article>
+        </section>
+        <section id="sec4">
+          <header><h1>04.FREE BOARD</h1></header>
+          <article>
+            <p>
+              우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....우리는 달려간다 이상한 나라로 미나가 잡혀있는 마왕의
+              소굴로....
+            </p>
+          </article>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>

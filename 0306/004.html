@@ -39,10 +39,11 @@
         width: 1000px;
         top: 100px;
         left: 50%;
+        margin-top: 0;
       }
       #box2.on2 {
         position: absolute;
-        top: 2200px;
+        top: 2200px; /* 전체 사이즈 생각해서 top 설정 */
         border: 1px solid red;
         left: 50%;
         transform: translateX(-50%);
@@ -53,12 +54,13 @@
         border: 1px solid #000;
         transform: translateX(-50%);
         width: 1000px;
-        top: -2000px;
+        top: -2100px; /* - 가 중요한 설정임 2100만큼 올라가서 고정되어라 */
         left: 50%;
+        margin-top: 0;
       }
       #box2.on4 {
         position: absolute;
-        top: 3300px;
+        top: 3300px; /* 전체 사이즈 생각해서 top 설정 */
         border: 1px solid red;
         left: 50%;
         transform: translateX(-50%);
@@ -115,7 +117,7 @@
             }
             $(".content1").html(imgs);
 
-            var num = Math.floor((ab - 1200) / 5);
+            var num = Math.floor((ab - 1200) / 5); // if문 에서 2200-1200 =1000/5 =>200 ...200으로 딱 떨어지게 하려고 숫자 세팅
             $(".content1 img").hide();
             $(".content1 img").eq(num).show();
 
@@ -130,11 +132,11 @@
             //$위의 변수 복붙 후 변경
             var imgs2 = "";
             for (var i = 0; i < 95; i++) {
-              imgs += '<img src="mp4/car' + i + '.jpg">';
+              imgs2 += '<img src="mp4/car' + i + '.jpg">';
             }
             $(".content3").html(imgs2);
             //
-            var num2 = Math.floor((ab - 4500) / 10.5);
+            var num2 = Math.floor((ab - 4500) / 10.5); // 5500-4500=1000 나누기 10.5
             $(".content3 img").hide();
             $(".content3 img").eq(num2).show();
             //
@@ -155,9 +157,12 @@
 
       <section id="box2">
         <div class="content1"><img src="img/pic0.jpg" alt="영상이미지" /></div>
+        <!-- 1100구간 on을 받고 얼음 -->
 
         <div class="content2">content2</div>
+        <!-- 3300 -->
         <div class="content3"><img src="mp4/car10.jpg" /></div>
+        <!-- 4400 on3를 받고 얼음-->
         <div class="content4">content4</div>
         <div class="content5">content5</div>
       </section>

@@ -1,0 +1,12 @@
+
+portfolio.js에서
+스크롤탑구간에서 한번만 연출하는 작업엔 문제가 없었다.
+이때 사용한 테크닉은 setInterval/clearInterval이었다
+그러나 if문을 이용해 해당조건에서 벗어나면 다시 0이되고
+해당구간에 들어오면 텍스트값이 80이되는 반복이 
+clearInterval로 인해서 한번만 적용되고 반복적용이 되질 않았다.
+
+그래서 이문제를 animate로 해결하였다.
+
+$('.nom2').text(Math.ceil(this.val)); 이렇게 ceil로 안주면 80이 아닌 79에서 끝남(반올림)
+ $('.nom1').text(Math.floor(this.val));  이렇게 floor를 안주면 결과값이 0이 아닌 1로 끝나버림(정수)

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마우스 이동에 따른 재생 설정</title>
+    <style>
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+        a{text-decoration: none;}
+        
+        #bg{position:fixed; width:100%; height: 100%;  left:0; top:0; z-index: -1000; background-image: url(bg.jpg); background-repeat: no-repeat;
+            background-position:center center; background-size: cover; background-attachment: fixed;}
+       
+        h1{position: absolute; left: 315px; top: 100px; margin-left: 20px; color: #fff;}
+        #menu1{position:absolute; right:30px; bottom:30px; /* border:1px solid red; */ color: #ccc; font-size: 12px;}
+    
+        #menu{/* border:1px solid red; */ position:absolute; top:50%; left:22%; transform: translate(-50%, -50%); z-index: 1000;}
+        ul{list-style: none; text-align: center;}
+        ul li{width:200px; height:50px; margin:10px;}
+        #menu li a{display: block; color: #fff; line-height: 50px; background-color:skyblue; border-radius: 5px;}
+        #menu li a.on{background-color: pink; font-weight: bold;}
+
+        section{position: fixed; top: 50%; left: 55%; transform: translate(-50%,-50%);
+                overflow: hidden; visibility: hidden; opacity: 0; transition: all 1s ease; border: 1px solid red;}
+        section img{width: 100%; height: auto; position: absolute; left: 0; top:0px; vertical-align: top;}
+        #box1{width: 1000px; height: 562px; border: 1px solid #fff; }
+        #box1.on{visibility: visible; opacity: 1;}
+        #box2{width: 1000px; height: 562px; border: 1px solid #fff; }
+        #box2.on{visibility: visible; opacity: 1;}
+        #box3{width: 1000px; height: 562px; border: 1px solid #fff; }
+        #box3.on{visibility: visible; opacity: 1;}
+        #box4{width: 1000px; height: 562px; border: 1px solid #fff; }
+        #box4.on{visibility: visible; opacity: 1;}
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(function(){
+            var imgs = '';
+            for(var i=0; i<230; i++){
+                imgs += '<img src="img/golf' +   i  +  '.jpg">'
+            }
+            $('section#box1').html(imgs);
+
+            $('section#box1').on('mousemove',function(a){
+                var x = a.offsetX; //.pageX는 화면 전체에서의 좌표, offsetX는 특정 오브젝트에서의 좌표
+                var y = a.offsetY;
+                var win = $('section#box1').width();
+                var percent = Math.floor((x/win)*230);
+
+                $('.posX').text(x);
+                $('.posY').text(y);
+                $('.percent').text(percent);
+
+                $('section#box1 img').hide();
+                $('section#box1 img').eq(percent).show();
+            });
+
+            var imgs2 = '';
+            for(var b=0; b<230; b++){
+                imgs2 += '<img src="img2/img' +   b  +  '.jpg">'
+            }
+            $('section#box2').html(imgs2);
+
+            $('section#box2').on('mousemove',function(c){
+                var x2 = c.offsetX; //.pageX는 화면 전체에서의 좌표, offsetX는 특정 오브젝트에서의 좌표
+                var y2 = c.offsetY;
+                var win2 = $('section#box2').width();
+                var percent2 = Math.floor((x2/win2)*230);
+
+                $('.posX').text(x2);
+                $('.posY').text(y2);
+                $('.percent').text(percent2);
+
+                $('section#box2 img').hide();
+                $('section#box2 img').eq(percent2).show();
+            });
+
+            var imgs3 = '';
+            for(var c=0; c<106; c++){
+                imgs3 += '<img src="img3/gggolf' +   c  +  '.jpg">'
+            }
+            $('section#box3').html(imgs3);
+
+            $('section#box3').on('mousemove',function(d){
+                var x3 = d.offsetX; //.pageX는 화면 전체에서의 좌표, offsetX는 특정 오브젝트에서의 좌표
+                var y3 = d.offsetY;
+                var win3 = $('section#box3').width();
+                var percent3 = Math.floor((x3/win3)*106);
+
+                $('.posX').text(x3);
+                $('.posY').text(y3);
+                $('.percent').text(percent3);
+
+                $('section#box3 img').hide();
+                $('section#box3 img').eq(percent3).show();
+            });
+
+            var imgs4 = '';
+            for(var d=0; d<77; d++){
+                imgs4 += '<img src="img4/ssss' +   d  +  '.jpg">'
+            }
+            $('section#box4').html(imgs4);
+
+            $('section#box4').on('mousemove',function(e){
+                var x4 = e.offsetX; //.pageX는 화면 전체에서의 좌표, offsetX는 특정 오브젝트에서의 좌표
+                var y4 = e.offsetY;
+                var win4 = $('section#box4').width();
+                var percent4 = Math.floor((x4/win4)*77);
+
+                $('.posX').text(x4);
+                $('.posY').text(y4);
+                $('.percent').text(percent4);
+
+                $('section#box4 img').hide();
+                $('section#box4 img').eq(percent4).show();
+            });
+
+            $('#box1').addClass('on');
+            $('.btn1').click(function(){
+                $('section').removeClass('on');
+                $('#box1').addClass('on');
+                $('#menu a').removeClass('on');
+                $(this).addClass('on');
+            });
+            $('.btn2').click(function(){
+                $('section').removeClass('on');
+                $('#box2').addClass('on');
+                $('#menu a').removeClass('on');
+                $(this).addClass('on');
+            });
+            $('.btn3').click(function(){
+                $('section').removeClass('on');
+                $('#box3').addClass('on');
+                $('#menu a').removeClass('on');
+                $(this).addClass('on');
+            });
+
+            $('.btn4').click(function(){
+                $('section').removeClass('on');
+                $('#box4').addClass('on');
+                $('#menu a').removeClass('on');
+                $(this).addClass('on');
+            });
+        });
+    </script>
+<body>
+    <div id="bg"></div>
+    <h1>Web design portfolio</h1>
+    <div id="menu1">
+        <p>마우스의 x축 좌표: <span class="posX">0</span></p>
+        <p>마우스의 y축 좌표: <span class="posY">0</span></p>
+        <p>전체컷 중 몇 번째인가: <span class="percent">0</span></p>
+    </div>
+    <div id="menu">
+        <ul>
+            <li><a href="#" class="btn1 on">박성현 드라이버</a></li>
+            <li><a href="#" class="btn2">박성현 아이언 스윙</a></li>
+            <li><a href="#" class="btn3">전인지 아이언 스윙</a></li>
+            <li><a href="#" class="btn4">김효주 드라이버</a></li>
+        </ul>
+    </div>
+    
+    <section id="box1">
+        <img src="img/golf0.jpg" alt="영상이미지">
+    </section>
+    <section id="box2">
+        <img src="img2/img0.jpg" alt="영상이미지">
+    </section>
+    <section id="box3">
+        <img src="img3/gggolf0.jpg" alt="영상이미지">
+    </section>
+    <section id="box4">
+        <img src="img4/ssss0.jpg" alt="영상이미지">
+    </section>
+</body>
+</html>

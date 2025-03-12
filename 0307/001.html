@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>어제 내용 복습</title>
+    <style>
+      body {
+        height: 4000px;
+      }
+      p {
+        position: fixed; /* 게이지는 항상 그자리에 떠있어야함 */
+        font-size: 30px;
+        color: red;
+        left: 30px;
+        top: 30px;
+        border: 1px solid red;
+      }
+      div {
+        width: 500px;
+        height: 50px;
+        background-color: #ccc;
+        position: absolute;
+        left: 200px;
+        top: 200px; /* 위에서 200 떨어져있어라 */
+      }
+      div.on {
+        /* 얼음이 된 모습 */
+        width: 1000px;
+        height: 100px;
+        background-color: purple;
+        position: fixed; /* 얼음 */
+        left: 200px;
+        top: 0; /* 스크롤에서는 올라간 상태니까 top => 0 에서는 얼음이 되라 */
+      }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+      $(function () {
+        $(window).on("scroll", function () {
+          var abc = $(this).scrollTop();
+          $("p").text(abc);
+          if (/* $(window).scrollTop() */ abc >= 200) {
+            /* $(window).scrollTop() 친절하게 써줄 수 도 있지만 변수 abc로도 사용 가능 */
+            $("div").addClass("on");
+          } else {
+            $("div").removeClass("on");
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <p>0</p>
+    <div>box</div>
+    <!-- <div class="on">을 넣어서 위치 확인 후 삭제-->
+  </body>
+</html>
